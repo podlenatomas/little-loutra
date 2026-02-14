@@ -1,0 +1,11 @@
+.map-section {
+    background: #FFFFFF;
+}
+
+.map-container {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}

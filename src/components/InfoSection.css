@@ -1,0 +1,63 @@
+.info-section {
+    background-color: #FFFFFF;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.text-left {
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+}
+
+.info-description {
+    font-size: clamp(17px, 2.2vw, 20px);
+    line-height: 1.7;
+    color: var(--color-fg-muted);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.feature-card {
+    background: #FFFFFF;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-md);
+    transition: all var(--transition-base);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(0, 122, 255, 0.1);
+}
+
+.feature-icon {
+    color: var(--color-sea-blue);
+}
+
+.feature-label {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-fg);
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}

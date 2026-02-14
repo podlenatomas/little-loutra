@@ -1,0 +1,99 @@
+.meaning-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(80px, 15vw, 140px) 0;
+    text-align: center;
+    background: linear-gradient(to bottom, #FFFFFF 0%, #F9F9FB 100%);
+}
+
+.meaning-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(15vw, 25vw, 28vw);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.02);
+    z-index: 1;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+}
+
+.meaning-container {
+    position: relative;
+    z-index: 2;
+    max-width: var(--max-width-narrow);
+}
+
+.meaning-title {
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    margin-bottom: var(--spacing-2xl);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+}
+
+.meaning-etymology {
+    font-size: clamp(18px, 2.5vw, 22px);
+    line-height: 1.7;
+    color: var(--color-fg-muted);
+    margin-bottom: var(--spacing-3xl);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.meaning-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-3xl);
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.stat-value {
+    font-size: clamp(42px, 6vw, 64px);
+    font-weight: 300;
+    background: var(--color-sea-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, transparent, #E1E1E1, transparent);
+}
+
+@media (max-width: 768px) {
+    .meaning-bg-text {
+        font-size: 40vw;
+    }
+
+    .meaning-stats {
+        gap: var(--spacing-xl);
+    }
+
+    .stat-divider {
+        height: 50px;
+    }
+}

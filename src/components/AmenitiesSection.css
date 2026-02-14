@@ -1,0 +1,62 @@
+.amenities-section {
+    padding: var(--spacing-3xl) 0;
+    background: linear-gradient(to bottom, #FAFAFA 0%, #FFFFFF 100%);
+}
+
+.amenities-label {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fg-muted);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.amenity-card {
+    background: #FFFFFF;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--spacing-lg);
+    transition: all var(--transition-base);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-sm);
+}
+
+.amenity-card:hover {
+    border-color: rgba(0, 122, 255, 0.15);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.amenity-icon {
+    color: var(--color-fg);
+    transition: transform var(--transition-base);
+}
+
+.amenity-card:hover .amenity-icon {
+    transform: scale(1.1);
+}
+
+.amenity-text {
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-fg);
+}
+
+@media (max-width: 900px) {
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
