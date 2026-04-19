@@ -1,11 +1,14 @@
 # Apartment photos
 
-Drop your photos here with these exact filenames (the site picks them up automatically):
+Gallery (see `src/components/GalleryGrid.jsx`):
 
-- `apt-01.jpg` — large / main shot (e.g. living room, balcony view)
-- `apt-02.jpg` — smaller shot 1 (e.g. bedroom)
-- `apt-03.jpg` — smaller shot 2 (e.g. kitchen)
+- `apt-11.jpg` — bed
+- `apt-04.jpg` — sofa
+- `apt-07.jpg` — dining
+- `apt-08.jpg` — kitchen
+- `apt-09.jpg` — bathroom
+- `apt-10.jpg` — hallway
 
-**Recommended:** 1600×1200 px or larger, JPEG, ~80% quality, under ~500 KB each.
+**Recommended:** max ~2200 px on the longest side, JPEG ~80–85% quality, under ~1 MB each.
 
 While no photos are present, the site falls back to a neutral placeholder image.
