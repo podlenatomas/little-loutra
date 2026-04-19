@@ -38,8 +38,8 @@ function App() {
                         <Hero />
                         <AmenitiesSection />
                         <InfoSection />
-                        <MeaningSection />
                         <GalleryGrid />
+                        <MeaningSection />
                         <SurroundingsSection />
                         <PricingSection />
                         <FAQSection />
