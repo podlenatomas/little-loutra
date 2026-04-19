@@ -7,7 +7,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const todayISO = () => new Date().toISOString().slice(0, 10);
 
-const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '';
+// Site key is public (embedded in the JS bundle, visible in DevTools to any
+// visitor). It's safe to hardcode. The matching *secret* key stays as a Worker
+// env var. VITE_TURNSTILE_SITE_KEY env var overrides if set (useful for
+// staging or alternate sites).
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || '0x4AAAAAAC_usOwkhLsrF0LA';
 
 const ReservationForm = ({ onOpenLegal }) => {
     const { t, i18n } = useTranslation();
