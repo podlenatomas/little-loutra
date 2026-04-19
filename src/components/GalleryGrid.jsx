@@ -1,28 +1,38 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './GalleryGrid.css';
 
-const images = [
-    { src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2580&auto=format&fit=crop', alt: 'Main Living Room', type: 'large' },
-    { src: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2670&auto=format&fit=crop', alt: 'Bedroom Comfort', type: 'small' },
-    { src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2670&auto=format&fit=crop', alt: 'Kitchen Detail', type: 'small' }
-];
+const PLACEHOLDER = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2580&auto=format&fit=crop';
 
 const GalleryGrid = () => {
+    const { t } = useTranslation();
+
+    const images = [
+        { src: '/images/apt-11.jpg', captionKey: 'bed' },
+        { src: '/images/apt-04.jpg', captionKey: 'sofa' },
+        { src: '/images/apt-07.jpg', captionKey: 'dining' },
+        { src: '/images/apt-08.jpg', captionKey: 'kitchen' },
+        { src: '/images/apt-09.jpg', captionKey: 'bathroom' },
+        { src: '/images/apt-10.jpg', captionKey: 'hallway' }
+    ];
+
+    const fallback = (e) => {
+        if (e.target.dataset.fallback !== '1') {
+            e.target.dataset.fallback = '1';
+            e.target.src = PLACEHOLDER;
+        }
+    };
+
     return (
-        <section className="section gallery-section">
+        <section className="section gallery-section" aria-label="Photos">
             <div className="container">
-                <div className="gallery-grid">
-                    <div className="gallery-item large">
-                        <img src={images[0].src} alt={images[0].alt} loading="lazy" />
-                    </div>
-                    <div className="gallery-stack">
-                        <div className="gallery-item small">
-                            <img src={images[1].src} alt={images[1].alt} loading="lazy" />
-                        </div>
-                        <div className="gallery-item small">
-                            <img src={images[2].src} alt={images[2].alt} loading="lazy" />
-                        </div>
-                    </div>
+                <div className="gallery-row">
+                    {images.map((img, i) => (
+                        <figure key={img.captionKey} className="gallery-item tile" data-reveal data-reveal-delay={(i % 5) + 1}>
+                            <img src={img.src} alt={t(`gallery.${img.captionKey}`)} loading="lazy" onError={fallback} />
+                            <figcaption className="gallery-caption">{t(`gallery.${img.captionKey}`)}</figcaption>
+                        </figure>
+                    ))}
                 </div>
             </div>
         </section>

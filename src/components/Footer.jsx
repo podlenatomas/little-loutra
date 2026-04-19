@@ -1,82 +1,102 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { MapPin, Phone, Mail, Instagram, Facebook, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import './Footer.css';
 
-const Footer = () => {
+// TODO: replace with real profile URLs and contact details
+const CONTACT = {
+    instagram: 'https://www.instagram.com/', // TODO
+    facebook: 'https://www.facebook.com/',   // TODO
+    phone: '+30 274 406 6000',               // TODO: verify
+    phoneHref: 'tel:+302744066000',
+    email: 'stay@littleloutra.com'
+};
+
+const Footer = ({ onOpenLegal }) => {
     const { t } = useTranslation();
+    const year = new Date().getFullYear();
+
+    const scrollToBook = (e) => {
+        e.preventDefault();
+        document.getElementById('book')?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <footer className="footer">
             <div className="container">
                 <div className="footer-grid">
-                    {/* About Section */}
                     <div className="footer-column">
                         <h3 className="footer-logo">Little Loutra</h3>
-                        <p className="footer-description">
-                            {t('footer.description')}
-                        </p>
+                        <p className="footer-description">{t('footer.description')}</p>
                         <div className="social-links">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-                                <Instagram size={20} />
+                            <a
+                                href={CONTACT.instagram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="social-icon"
+                                aria-label={t('a11y.socialInstagram')}
+                            >
+                                <Instagram size={20} aria-hidden="true" />
                             </a>
-                            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-                                <Facebook size={20} />
-                            </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
-                                <Twitter size={20} />
+                            <a
+                                href={CONTACT.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="social-icon"
+                                aria-label={t('a11y.socialFacebook')}
+                            >
+                                <Facebook size={20} aria-hidden="true" />
                             </a>
                         </div>
                     </div>
 
-                    {/* Contact Info */}
                     <div className="footer-column">
                         <h4 className="footer-title">{t('footer.contactTitle')}</h4>
-                        <div className="contact-list">
+                        <address className="contact-list">
                             <div className="contact-item">
-                                <MapPin size={18} />
+                                <MapPin size={18} aria-hidden="true" />
                                 <div>
-                                    <p>Loutraki Perachora</p>
+                                    <p>Loutraki</p>
                                     <p>203 00, Greece</p>
                                 </div>
                             </div>
                             <div className="contact-item">
-                                <Phone size={18} />
-                                <a href="tel:+302744066000">+30 274 406 6000</a>
+                                <Phone size={18} aria-hidden="true" />
+                                <a href={CONTACT.phoneHref}>{CONTACT.phone}</a>
                             </div>
                             <div className="contact-item">
-                                <Mail size={18} />
-                                <a href="mailto:info@littleloutra.com">info@littleloutra.com</a>
+                                <Mail size={18} aria-hidden="true" />
+                                <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                             </div>
-                        </div>
+                        </address>
                     </div>
 
-                    {/* Quick Links */}
                     <div className="footer-column">
                         <h4 className="footer-title">{t('footer.quickLinks')}</h4>
                         <ul className="footer-links">
                             <li><a href="#about">{t('nav.about')}</a></li>
-                            <li><a href="#book">{t('nav.book')}</a></li>
-                            <li><a href="#">{t('footer.gallery')}</a></li>
-                            <li><a href="#">{t('footer.reviews')}</a></li>
+                            <li><a href="#amenities">{t('amenities.title')}</a></li>
+                            <li><a href="#nearby">{t('surroundings.title')}</a></li>
+                            <li><a href="#pricing">{t('footer.pricing')}</a></li>
+                            <li><a href="#faq">{t('footer.faq')}</a></li>
+                            <li><a href="#book" onClick={scrollToBook}>{t('nav.book')}</a></li>
                         </ul>
                     </div>
 
-                    {/* Legal */}
                     <div className="footer-column">
                         <h4 className="footer-title">{t('footer.legalTitle')}</h4>
                         <ul className="footer-links">
-                            <li><a href="#">{t('footer.privacy')}</a></li>
-                            <li><a href="#">{t('footer.terms')}</a></li>
-                            <li><a href="#">{t('footer.cancellation')}</a></li>
-                            <li><a href="#">{t('footer.cookies')}</a></li>
+                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('privacy')}>{t('footer.privacy')}</button></li>
+                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('terms')}>{t('footer.terms')}</button></li>
+                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('cancellation')}>{t('footer.cancellation')}</button></li>
+                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('cookiesPage')}>{t('footer.cookies')}</button></li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="footer-bottom">
-                    <p>&copy; {new Date().getFullYear()} Little Loutra. {t('footer.rights')}</p>
-                    <p className="footer-credit">Designed with ❤️ in Greece</p>
+                    <p>&copy; {year} Little Loutra. {t('footer.rights')}</p>
+                    <p className="footer-credit">{t('footer.credit')}</p>
                 </div>
             </div>
         </footer>

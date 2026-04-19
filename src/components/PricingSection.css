@@ -1,0 +1,108 @@
+.pricing-section {
+    background: #F5F5F7;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: var(--color-fg-muted);
+    margin-top: -32px;
+    margin-bottom: 40px;
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.pricing-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 40px;
+    border-radius: var(--radius-full);
+    background: var(--color-sea-gradient);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    box-shadow: 0 8px 24px rgba(0, 119, 190, 0.3);
+    min-height: 56px;
+}
+
+.pricing-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(0, 119, 190, 0.4);
+    opacity: 1;
+}
+
+.pricing-cta-arrow {
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-cta:hover .pricing-cta-arrow {
+    transform: translateX(4px);
+}
+
+.pricing-booking {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 18px 28px;
+    border-radius: var(--radius-full);
+    border: 1.5px solid var(--color-fg);
+    color: var(--color-fg);
+    font-size: 15px;
+    font-weight: 600;
+    transition: all var(--transition-base);
+    min-height: 56px;
+}
+
+.pricing-booking:hover {
+    background: var(--color-fg);
+    color: #fff;
+    opacity: 1;
+}
+
+.pricing-booking svg {
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-booking:hover svg {
+    transform: translate(2px, -2px);
+}
+
+.pricing-notes {
+    list-style: none;
+    padding: 0;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    color: var(--color-fg-muted);
+    font-size: 14px;
+}
+
+.pricing-notes li::before {
+    content: '·';
+    margin-right: 8px;
+    color: var(--color-sea-blue);
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .pricing-actions { flex-direction: column; gap: 16px; }
+    .pricing-cta,
+    .pricing-booking { width: 100%; justify-content: center; }
+}

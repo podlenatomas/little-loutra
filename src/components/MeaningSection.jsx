@@ -9,11 +9,11 @@ const MeaningSection = () => {
         <section className="section meaning-section">
             <div className="meaning-bg-text">LOUTRAKI</div>
             <div className="container meaning-container">
-                <h2 className="meaning-title">{t('meaning.title')}</h2>
+                <h2 className="meaning-title" data-reveal>{t('meaning.title')}</h2>
                 <div className="meaning-content">
-                    <p className="meaning-etymology">{t('meaning.etymology')}</p>
+                    <p className="meaning-etymology" data-reveal data-reveal-delay="1">{t('meaning.etymology')}</p>
 
-                    <div className="meaning-stats">
+                    <div className="meaning-stats" data-reveal data-reveal-delay="2">
                         <div className="stat-item">
                             <span className="stat-value">{t('meaning.year')}</span>
                             <span className="stat-label">{t('meaning.yearLabel')}</span>

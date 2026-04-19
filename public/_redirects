@@ -1,0 +1,6 @@
+# Redirect www → apex
+https://www.littleloutra.com/*  https://littleloutra.com/:splat  301!
+
+# SPA fallback — any non-file, non-function path serves index.html
+# (Pages Functions under /api/* are matched before this rule.)
+/*  /index.html  200

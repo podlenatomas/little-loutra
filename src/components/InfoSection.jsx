@@ -18,12 +18,12 @@ const InfoSection = () => {
             <div className="container">
                 <div className="info-grid">
                     <div className="info-text">
-                        <h2 className="section-title text-left">{t('about.title')}</h2>
-                        <p className="info-description">{t('about.description')}</p>
+                        <h2 className="section-title text-left" data-reveal>{t('about.title')}</h2>
+                        <p className="info-description" data-reveal data-reveal-delay="1">{t('about.description')}</p>
                     </div>
                     <div className="features-grid">
                         {features.map((feature, index) => (
-                            <div key={index} className="feature-card">
+                            <div key={index} className="feature-card" data-reveal data-reveal-delay={(index % 5) + 1}>
                                 <div className="feature-icon">{feature.icon}</div>
                                 <span className="feature-label">{feature.label}</span>
                             </div>

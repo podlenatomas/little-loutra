@@ -1,6 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { MapPin, ArrowUpRight } from 'lucide-react';
 import './Map.css';
+
+const GOOGLE_MAPS_URL = 'https://maps.google.com/?q=Mpoleti+6,+Loutraki,+Greece';
+const EMBED_URL = 'https://maps.google.com/maps?q=Mpoleti+6,+Loutraki,+Greece&z=17&output=embed';
 
 const Map = () => {
     const { t } = useTranslation();
@@ -8,17 +12,36 @@ const Map = () => {
     return (
         <section id="location" className="section map-section">
             <div className="container">
-                <h2 className="section-title">{t('nav.location')}</h2>
-                <div className="map-container">
+                <div className="map-head" data-reveal>
+                    <div>
+                        <h2 className="section-title text-left">{t('location.title')}</h2>
+                        <div className="map-address">
+                            <MapPin size={18} aria-hidden="true" />
+                            <p className="map-address-line">{t('location.address')}</p>
+                        </div>
+                    </div>
+                    <a
+                        href={GOOGLE_MAPS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="map-directions"
+                    >
+                        <span>{t('location.directions')}</span>
+                        <ArrowUpRight size={18} aria-hidden="true" />
+                    </a>
+                </div>
+
+                <div className="map-container" data-reveal data-reveal-delay="1">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50325.32626574185!2d22.92383195!3d37.99424855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a0445d4481358b%3A0x400bd2ce2b98850!2sPerachora%20Loutrakiou%20203%2000!5e0!3m2!1sen!2sgr!4v1707166500000!5m2!1sen!2sgr"
+                        src={EMBED_URL}
                         width="100%"
-                        height="450"
+                        height="560"
                         style={{ border: 0 }}
                         allowFullScreen=""
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        title="Little Loutra Location"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms"
+                        title="Little Loutra, Mpoleti 6, Loutraki Perachora"
                     ></iframe>
                 </div>
             </div>

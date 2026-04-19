@@ -2,9 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>little-loutra</title>
+    <meta name="theme-color" content="#0077BE" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="canonical" href="https://littleloutra.com/" />
+
+    <title>Little Loutra, Seaside Apartment in Loutraki, Greece</title>
+    <meta name="description" content="Little Loutra: private apartment in Loutraki Perachora, Greece. One bedroom, a private balcony, up to 4 guests. One hour from Athens." />
+    <meta name="keywords" content="Loutraki, Perachora, Greece, vacation rental, apartment, Corinthian Gulf, seaside, holiday, spa" />
+    <meta name="author" content="Little Loutra" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Little Loutra" />
+    <meta property="og:title" content="Little Loutra, Your Peace by the Sea" />
+    <meta property="og:description" content="Private seaside apartment in Loutraki Perachora, Greece. Modern design, healing waters, one hour from Athens." />
+    <meta property="og:url" content="https://littleloutra.com/" />
+    <meta property="og:image" content="https://littleloutra.com/og-image.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="el_GR" />
+    <meta property="og:locale:alternate" content="cs_CZ" />
+    <meta property="og:locale:alternate" content="de_DE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Little Loutra, Your Peace by the Sea" />
+    <meta name="twitter:description" content="Private seaside apartment in Loutraki Perachora, Greece." />
+    <meta name="twitter:image" content="https://littleloutra.com/og-image.jpg" />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://littleloutra.com/" />
+    <link rel="alternate" hreflang="el" href="https://littleloutra.com/?lng=el" />
+    <link rel="alternate" hreflang="cs" href="https://littleloutra.com/?lng=cs" />
+    <link rel="alternate" hreflang="de" href="https://littleloutra.com/?lng=de" />
+    <link rel="alternate" hreflang="x-default" href="https://littleloutra.com/" />
+
+    <!-- Preconnects for third-party assets -->
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preconnect" href="https://www.google.com" crossorigin />
+    <link rel="preconnect" href="https://challenges.cloudflare.com" crossorigin />
+
+    <!-- Cloudflare Turnstile (anti-bot). Widget renders when VITE_TURNSTILE_SITE_KEY is set. -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <!-- Web manifest -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- Structured data: LodgingBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Little Loutra",
+      "description": "Private apartment in Loutraki Perachora, Greece. One bedroom, a private balcony, up to 4 guests.",
+      "url": "https://littleloutra.com/",
+      "image": "https://littleloutra.com/og-image.jpg",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Mpoleti 6",
+        "addressLocality": "Loutraki",
+        "postalCode": "203 00",
+        "addressCountry": "GR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 37.994248,
+        "longitude": 22.923831
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Fiber Wi-Fi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Full Kitchen", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private Balcony", "value": true }
+      ],
+      "numberOfRooms": 1,
+      "maximumAttendeeCapacity": 4
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

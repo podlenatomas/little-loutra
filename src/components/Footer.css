@@ -1,3 +1,26 @@
+.footer-link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: opacity 150ms ease, transform 150ms ease;
+    display: inline-block;
+}
+
+.footer-link-btn:hover {
+    color: #FFFFFF;
+    transform: translateX(4px);
+}
+
+.footer-link-btn:focus-visible {
+    outline: 2px solid #0077BE;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 .footer {
     padding: var(--spacing-3xl) 0 var(--spacing-xl);
     background: linear-gradient(to bottom, #1A1A1C 0%, #0D0D0E 100%);
@@ -125,7 +148,7 @@
 }
 
 .footer-credit {
-    font-style: italic;
+    font-style: normal;
 }
 
 @media (max-width: 1024px) {

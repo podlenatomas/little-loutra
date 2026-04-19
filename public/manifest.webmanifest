@@ -1,0 +1,17 @@
+{
+  "name": "Little Loutra",
+  "short_name": "Little Loutra",
+  "description": "Seaside apartment in Loutraki, Greece.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0077BE",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
