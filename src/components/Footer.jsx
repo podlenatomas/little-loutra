@@ -55,10 +55,7 @@ const Footer = ({ onOpenLegal }) => {
                         <address className="contact-list">
                             <div className="contact-item">
                                 <MapPin size={18} aria-hidden="true" />
-                                <div>
-                                    <p>Loutraki</p>
-                                    <p>203 00, Greece</p>
-                                </div>
+                                <p>{t('location.address')}</p>
                             </div>
                             <div className="contact-item">
                                 <Phone size={18} aria-hidden="true" />
@@ -86,10 +83,10 @@ const Footer = ({ onOpenLegal }) => {
                     <div className="footer-column">
                         <h4 className="footer-title">{t('footer.legalTitle')}</h4>
                         <ul className="footer-links">
-                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('privacy')}>{t('footer.privacy')}</button></li>
-                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('terms')}>{t('footer.terms')}</button></li>
-                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('cancellation')}>{t('footer.cancellation')}</button></li>
-                            <li><button type="button" className="footer-link-btn" onClick={() => onOpenLegal('cookiesPage')}>{t('footer.cookies')}</button></li>
+                            <li><button type="button" onClick={() => onOpenLegal('privacy')}>{t('footer.privacy')}</button></li>
+                            <li><button type="button" onClick={() => onOpenLegal('terms')}>{t('footer.terms')}</button></li>
+                            <li><button type="button" onClick={() => onOpenLegal('cancellation')}>{t('footer.cancellation')}</button></li>
+                            <li><button type="button" onClick={() => onOpenLegal('cookiesPage')}>{t('footer.cookies')}</button></li>
                         </ul>
                     </div>
                 </div>
