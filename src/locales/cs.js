@@ -119,7 +119,7 @@ export default {
         title: "Co je okolo",
         subtitle: "Pěšky, autem, stojí za to.",
         items: [
-            { key: "sea", title: "Moře a promenáda", desc: "Dvě minuty pěšky. Kavárny, bary, taverny, obchody a veřejné sprchy přímo u moře." },
+            { key: "sea", title: "Moře a promenáda", desc: "Kavárny, bary, taverny, obchody a veřejné sprchy přímo u moře. 2 minuty pěšky." },
             { key: "thermal", title: "Termální lázně", desc: "U břehu vyvěrá termální pramen přímo do moře. O pár domů dál jsou městské lázně s krytým bazénem, parní lázní a vířivkami." },
             { key: "canal", title: "Korintský průplav", desc: "Úzká soutěska prokopaná skálou, spojuje Korintský záliv se Sarónským. 15 minut autem." },
             { key: "seal", title: "Tulení jeskyně", desc: "Mořská jeskyně s tyrkysovou vodou na poloostrově Perachora. 30 minut autem." },

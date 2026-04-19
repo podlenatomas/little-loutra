@@ -119,7 +119,7 @@ export default {
         title: "Umgebung",
         subtitle: "Zu Fuß oder mit dem Auto.",
         items: [
-            { key: "sea", title: "Meer und Promenade", desc: "Zwei Minuten zu Fuß. Cafés, Bars, Tavernen, Geschäfte und öffentliche Duschen entlang der Promenade." },
+            { key: "sea", title: "Meer und Promenade", desc: "Cafés, Bars, Tavernen, Geschäfte und öffentliche Duschen entlang der Promenade. 2 Minuten zu Fuß." },
             { key: "thermal", title: "Thermalbäder", desc: "Eine heiße Quelle sprudelt direkt am Ufer ins Meer. Ein paar Türen weiter liegen die städtischen Bäder mit Hallenbad, Dampfbad und Whirlpools." },
             { key: "canal", title: "Kanal von Korinth", desc: "Ein schmaler, in den Fels gegrabener Kanal, der den Korinthischen mit dem Saronischen Golf verbindet. 15 Min. mit dem Auto." },
             { key: "seal", title: "Robbenhöhle", desc: "Eine Meereshöhle mit türkisfarbenem Wasser auf der Halbinsel Perachora. 30 Min. mit dem Auto." },

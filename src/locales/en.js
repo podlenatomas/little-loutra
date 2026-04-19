@@ -119,7 +119,7 @@ export default {
         title: "What's around",
         subtitle: "On foot or by car.",
         items: [
-            { key: "sea", title: "Sea and promenade", desc: "A two-minute walk. Cafés, bars, tavernas, shops and public showers along the boardwalk." },
+            { key: "sea", title: "Sea and promenade", desc: "Cafés, bars, tavernas, shops and public showers along the boardwalk. 2-minute walk." },
             { key: "thermal", title: "Thermal baths", desc: "A natural hot spring wells up right at the shoreline. The municipal baths a few doors down have an indoor pool, a steam room and jacuzzis." },
             { key: "canal", title: "Corinth Canal", desc: "A narrow gorge cut through rock, linking the Corinthian and Saronic Gulfs. 15 minutes by car." },
             { key: "seal", title: "Seal Cave", desc: "A sea cave with turquoise water on the Perachora peninsula. 30 minutes by car." },
