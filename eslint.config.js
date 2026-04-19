@@ -8,6 +8,7 @@ export default defineConfig([
   globalIgnores(['dist']),
   {
     files: ['src/**/*.{js,jsx}'],
+    ignores: ['src/worker.js'],
     extends: [
       js.configs.recommended,
       reactHooks.configs.flat.recommended,
@@ -27,12 +28,12 @@ export default defineConfig([
     },
   },
   {
-    files: ['api/**/*.{js,jsx}'],
+    files: ['functions/**/*.{js,jsx}', 'src/worker.js'],
     extends: [js.configs.recommended],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
-      globals: { ...globals.node },
+      globals: { ...globals.node, ...globals.worker },
     },
   },
 ])

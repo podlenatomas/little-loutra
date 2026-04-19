@@ -1,132 +1,145 @@
-# Deployment — littleloutra.com on Cloudflare Pages
+# Deployment — littleloutra.com on Cloudflare
 
-Domain is registered/managed at Cloudflare, so deployment stays in one place.
+Domain is registered/managed at Cloudflare, deploy stays in one place.
 
-## 1. Connect the repo to Cloudflare Pages
+This project uses **Cloudflare Workers with Static Assets** (the modern unified
+Workers + Pages model). Configuration: `wrangler.jsonc`. Worker entry: `src/worker.js`.
 
-1. Push the repo to GitHub (or GitLab — Cloudflare supports both).
-2. Cloudflare Dashboard → **Workers & Pages → Create → Pages → Connect to Git**.
-3. Pick the repo `podlenatomas/little-loutra`.
+## 1. Connect the repo
+
+1. Push the repo to GitHub.
+2. Cloudflare Dashboard → **Workers & Pages → Create → Workers → Import a repository**.
+   (Important: pick **Workers**, not the legacy "Pages" flow — the project is
+   configured as Workers + Static Assets.)
+3. Pick `podlenatomas/little-loutra`, branch `main`.
 4. **Build configuration**:
-   - Framework preset: **Vite**
    - Build command: `npm run build`
-   - Build output directory: `dist`
+   - Deploy command: `npx wrangler deploy`
    - Root directory: `/` (empty)
-   - Node.js version: **20.x** (Settings → Environment variables → build → `NODE_VERSION=20`)
-5. **Save and Deploy**. First build takes ~30–60 s.
+5. Set **NODE_VERSION = 20** under build environment variables.
+6. **Save and Deploy**.
 
-You'll get a preview URL like `little-loutra.pages.dev`.
+You'll get a worker URL like `little-loutra.<account>.workers.dev`.
 
 ## 2. Custom domain (littleloutra.com)
 
 Because the domain is already in Cloudflare DNS:
 
-1. In the Pages project → **Custom domains → Set up a custom domain**.
-2. Enter `littleloutra.com`, confirm — Cloudflare auto-creates the CNAME record in your DNS.
+1. Worker → **Settings → Domains & Routes → Add → Custom domain**.
+2. Enter `littleloutra.com`, confirm — DNS record is created automatically.
 3. Add `www.littleloutra.com` the same way (the `_redirects` file 301s `www → apex`).
-4. SSL certs auto-issue (Cloudflare SSL, free).
+4. SSL certs auto-issue.
 
 ## 3. Environment variables
 
-Pages has three environments: **Production**, **Preview**, and **Build**. Build-time vars (prefixed `VITE_`) are inlined into the JS bundle during `npm run build`. Runtime vars are available to Pages Functions.
+Worker → **Settings → Variables and Secrets**. Two kinds:
 
-Settings → **Environment variables → Production** (also **Preview** if you want the same on preview URLs):
+- **Plaintext variables** (visible in dashboard): `RESERVATION_TO_EMAIL`, `RESERVATION_FROM`
+- **Secrets** (encrypted): `RESEND_API_KEY`, `TURNSTILE_SECRET_KEY`
 
-| Var | Type | Value |
+Build-time variables (used during `npm run build` and inlined into the JS bundle)
+go under **Build → Variables** in deployment settings. These need a re-deploy to
+take effect.
+
+| Var | Type | Where |
 |---|---|---|
-| `RESEND_API_KEY` | Secret | `re_…` (from resend.com) |
-| `RESERVATION_TO_EMAIL` | Plain | `stay@littleloutra.com` |
-| `RESERVATION_FROM` | Plain | `Little Loutra <stay@littleloutra.com>` |
-| `TURNSTILE_SECRET_KEY` | Secret | Cloudflare Turnstile secret key |
-| `VITE_TURNSTILE_SITE_KEY` | Plain (build-time) | Cloudflare Turnstile site key |
-| `NODE_VERSION` | Plain (build-time) | `20` |
+| `RESEND_API_KEY` | Secret | Runtime |
+| `RESERVATION_TO_EMAIL` | Plaintext | Runtime, value `stay@littleloutra.com` |
+| `RESERVATION_FROM` | Plaintext | Runtime, `Little Loutra <stay@littleloutra.com>` |
+| `TURNSTILE_SECRET_KEY` | Secret | Runtime |
+| `VITE_TURNSTILE_SITE_KEY` | Plaintext | **Build** (must rebuild after change) |
+| `NODE_VERSION` | Plaintext | **Build**, value `20` |
 
-After adding `VITE_*` or `NODE_VERSION` vars, **re-trigger a deploy** (they only take effect at build time).
+After adding `VITE_*` or `NODE_VERSION`, **trigger a fresh deploy**.
 
 ## 4. Resend (transactional email)
 
 1. Sign up at https://resend.com (free: 3 000 emails/month).
 2. **Domains → Add Domain → `littleloutra.com`**.
-3. Resend shows DNS records. Since DNS is already at Cloudflare:
-   - Cloudflare Dashboard → **DNS → Records**
-   - Add the SPF `TXT`, DKIM `TXT`, and optional DMARC `TXT` Resend specifies
-   - Important: set these records to **DNS only** (grey cloud), NOT proxied (orange)
+3. Resend shows DNS records (SPF + DKIM, optional DMARC). Since DNS is at Cloudflare:
+   - Cloudflare Dashboard → **DNS → Records** for `littleloutra.com`
+   - Add the records exactly as Resend shows them
+   - Set them to **DNS only** (grey cloud), NOT proxied (orange) — proxying breaks email
 4. Wait for Resend to verify the domain.
-5. Create an API Key (type: **Sending**) → copy it to `RESEND_API_KEY` in Pages env vars.
+5. Create an API Key (type: **Sending**) → put it into Worker secrets as `RESEND_API_KEY`.
 
 ## 5. Turnstile captcha
 
 1. Cloudflare Dashboard → **Turnstile → Add site**.
-2. Domain: `littleloutra.com`, Widget mode: **Managed**.
-3. Copy **Site Key** → `VITE_TURNSTILE_SITE_KEY` (Pages env, production AND preview, mark as Build variable).
-4. Copy **Secret Key** → `TURNSTILE_SECRET_KEY` (Pages env, production, mark as Secret).
-5. Re-deploy so the site key gets baked into the build.
+2. Domain: `littleloutra.com` (add `*.workers.dev` too if you want preview deploys to work).
+3. Widget mode: **Managed**.
+4. Copy **Site Key** → `VITE_TURNSTILE_SITE_KEY` (Build variable; needs redeploy).
+5. Copy **Secret Key** → `TURNSTILE_SECRET_KEY` (Runtime secret).
 
-Without these env vars, the widget won't render and the API skips verification (honeypot + rate-limit still protect the form).
+Without these, the widget doesn't render and the API skips verification (honeypot
++ rate-limit still protect the form).
 
-## 6. Pages Functions
+## 6. Architecture summary
 
-- Location: `/functions/api/reserve.js`
-- Route: `POST /api/reserve` — auto-mapped by Pages from the file path.
-- Runtime: Cloudflare Workers (V8, not Node). Uses Web APIs (`fetch`, `Response`, `URLSearchParams`).
-- Environment vars reach the function via the `env` parameter, not `process.env`.
-
-Nothing to configure — Pages picks up `functions/` automatically on deploy.
+- `wrangler.jsonc` — Worker config (assets binding, SPA fallback, Node compat)
+- `src/worker.js` — Worker entry; routes `POST /api/reserve` to handler, falls
+  through to `env.ASSETS.fetch(request)` for static files
+- `functions/api/reserve.js` — handler, imported by the worker. Uses the same
+  shape as Pages Functions (`onRequestPost({ request, env })`) so it's portable
+- `dist/` — Vite build output, served as static assets
+- `public/_headers` — security/cache headers per route
+- `public/_redirects` — `www → apex` 301 (the SPA fallback is now handled by
+  `not_found_handling: "single-page-application"` in wrangler.jsonc)
 
 ## 7. Post-deploy verification
 
 On the live site:
 
-- [ ] `https://littleloutra.com/` loads, `www.` redirects to apex (301)
+- [ ] `https://littleloutra.com/` loads, `www.` 301s to apex
 - [ ] All 4 language switches work (EN/EL/CS/DE)
 - [ ] Gallery photos render (`/images/apt-*.jpg`)
-- [ ] Map section shows embedded Google Maps
-- [ ] Cookie banner appears on first visit, choice persists
-- [ ] Legal modals open (Privacy / Terms / Cancellation / Cookies)
-- [ ] Reservation form — fill test data, submit:
-  - Captcha widget renders (env vars set)
-  - Email arrives at `stay@littleloutra.com` (Resend configured)
+- [ ] Map embed shows
+- [ ] Cookie banner appears + persists choice
+- [ ] Legal modals open
+- [ ] Reservation form: fill test data, submit:
+  - Captcha widget renders
+  - Email arrives at `stay@littleloutra.com`
   - Success message shows
-- [ ] View page source:
-  - `<meta name="description">` reflects current language (updated by JS)
-  - `<link rel="canonical">` = `https://littleloutra.com/`
-  - JSON-LD `LodgingBusiness` schema present
+- [ ] Page source: dynamic `<meta description>` per locale, canonical, JSON-LD
 - [ ] OG preview: https://www.opengraph.xyz/ with `https://littleloutra.com`
-- [ ] Lighthouse: Performance > 85, SEO = 100, Accessibility > 90
-- [ ] Response headers (`curl -I https://littleloutra.com/`) show CSP / HSTS / X-Frame-Options
+- [ ] Lighthouse: Performance > 85, SEO 100, Accessibility > 90
+- [ ] `curl -I https://littleloutra.com/` shows CSP / HSTS / X-Frame-Options
 
 ## 8. SEO submission (optional)
 
-- Google Search Console: add property, verify via DNS TXT (at Cloudflare DNS), submit `https://littleloutra.com/sitemap.xml`.
+- Google Search Console: add property `https://littleloutra.com`, verify via DNS
+  TXT (in Cloudflare DNS), submit `https://littleloutra.com/sitemap.xml`.
 - Bing Webmaster Tools: same.
 
 ## 9. Local development
 
 ```bash
-# Vite dev server (no Pages Functions)
+# Vite dev server only (no API)
 npm run dev
 
-# With Pages Functions (runs the reservation API locally)
-npm run build && npx wrangler pages dev dist
+# Full Worker + assets locally (dist + functions)
+npm run build && npm run cf:dev
 ```
 
-`wrangler pages dev` simulates the full Cloudflare Pages runtime including Functions.
+`npm run cf:dev` runs `wrangler dev`, which simulates the production Worker
+runtime including the API endpoint and static asset binding. Hot-reload Vite
+isn't compatible with this — rebuild after each change.
 
 ## 10. Updating the site
 
-1. `git push origin main` — Cloudflare auto-deploys to production.
-2. Feature-branch pushes auto-deploy to a preview URL.
-3. Photos: drop into `/public/images/apt-XX.jpg` and push.
+`git push origin main` → Cloudflare auto-deploys to production. Photos: drop
+into `/public/images/apt-XX.jpg` and push.
 
 ## Troubleshooting
 
 | Symptom | Check |
 |---|---|
-| Form submit fails silently | Pages → Functions → Logs. Look for `[reserve] Missing RESEND_API_KEY` |
-| Captcha not appearing | `VITE_TURNSTILE_SITE_KEY` set AND re-deployed (build-time inlined). Try hard refresh. |
-| Captcha fails on submit | Turnstile site domain must match deploy URL exactly. Preview URLs need a separate Turnstile site or wildcard domain entry. |
-| Emails in spam | SPF/DKIM/DMARC DNS records on littleloutra.com (Cloudflare DNS → grey cloud, not proxied) |
+| "Variables cannot be added to a Worker that only has static assets" | The Worker has no script. Confirm `wrangler.jsonc` has `main: "src/worker.js"` and re-deploy. |
+| Form submit fails silently | Worker → Logs (real-time tail). Look for `[reserve] Missing RESEND_API_KEY` |
+| Captcha not appearing | `VITE_TURNSTILE_SITE_KEY` set as **Build** variable AND re-deployed |
+| Captcha fails on submit | Turnstile site domain must include the URL exactly. Add `*.workers.dev` for preview. |
+| Emails in spam | SPF/DKIM/DMARC at Cloudflare DNS, all set to grey cloud (DNS-only) |
 | Google Maps iframe blank | CSP `frame-src` already allows google.com; check browser console |
 | Social preview broken | Re-scrape: https://developers.facebook.com/tools/debug/ |
-| DNS not propagating | Cloudflare DNS is instant within Cloudflare. If using an external registrar, wait. |
-| 404 on SPA routes | Confirm `public/_redirects` contains `/*  /index.html  200` |
+| `/api/reserve` returns 404 | Confirm `wrangler.jsonc` has `main: "src/worker.js"` and `src/worker.js` exists |
+| 404 on SPA routes | `wrangler.jsonc` should have `assets.not_found_handling: "single-page-application"` |
