@@ -1,11 +1,13 @@
 // Cloudflare Worker entry point.
-// - Routes /api/* to serverless handlers
-// - Permanent-redirects www.* to the apex
-// - Falls through to the static assets binding (dist/) for everything else.
-//   wrangler.jsonc sets `not_found_handling: "single-page-application"`, so any
-//   non-matching asset path returns index.html with 200 (the SPA handles routing).
+// - GET /__version → diagnostic marker (proves a fresh deploy is live)
+// - POST /api/reserve → reservation handler
+// - www.* → 301 to apex
+// - Everything else → static assets binding (dist/), with SPA fallback for
+//   unknown paths via wrangler.jsonc `not_found_handling: "single-page-application"`
 
-import { onRequestPost as reservePost } from '../functions/api/reserve.js';
+import { onRequestPost as reservePost } from './api/reserve.js';
+
+const VERSION = 'v3-2026-04-19';
 
 export default {
     async fetch(request, env, ctx) {
@@ -15,6 +17,14 @@ export default {
         if (url.hostname.startsWith('www.')) {
             url.hostname = url.hostname.slice(4);
             return Response.redirect(url.toString(), 301);
+        }
+
+        // Diagnostic — confirms which worker version is running
+        if (url.pathname === '/__version') {
+            return new Response(VERSION, {
+                status: 200,
+                headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
+            });
         }
 
         if (url.pathname === '/api/reserve') {
