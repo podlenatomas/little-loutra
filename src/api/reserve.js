@@ -1,22 +1,19 @@
-// Cloudflare Pages Function — reservation request handler.
-// Route: POST /api/reserve
+// Reservation request handler (Cloudflare Worker runtime).
+// Route: POST /api/reserve  (routed via src/worker.js)
+// Diag:  GET  /api/diag     (routed via src/worker.js)
 //
-// Environment variables (set in Cloudflare Pages → Settings → Environment variables):
-//   RESEND_API_KEY         — from https://resend.com
-//   RESERVATION_TO_EMAIL   — mailbox that receives requests (e.g. stay@littleloutra.com)
-//   RESERVATION_FROM       — verified sender, e.g. "Little Loutra <stay@littleloutra.com>"
-//   TURNSTILE_SECRET_KEY   — Cloudflare Turnstile secret (optional; if set, captcha enforced)
-//
-// Runtime: Cloudflare Workers (V8, not Node). fetch / URLSearchParams / Response / Map
-// are native. No `process.env` — vars come in via the `env` parameter.
+// Env vars (Cloudflare Workers → Settings → Variables and Secrets):
+//   RESEND_API_KEY         — https://resend.com (Secret)
+//   RESERVATION_TO_EMAIL   — e.g. stay@littleloutra.com (Plaintext)
+//   RESERVATION_FROM       — e.g. "Little Loutra <stay@littleloutra.com>" (Plaintext)
+//   TURNSTILE_SECRET_KEY   — Cloudflare Turnstile secret (Secret; optional)
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
-// In-memory rate limit, per Worker isolate. Best-effort; real protection lives
-// at the Cloudflare WAF / Bot Management layer.
+// In-memory rate limit, per Worker isolate (best-effort).
 const buckets = new Map();
-const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const WINDOW_MS = 60 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 
 function rateLimited(ip) {
@@ -39,15 +36,18 @@ function escapeHtml(s) {
 
 const json = (status, data) => new Response(JSON.stringify(data), {
     status,
-    headers: { 'Content-Type': 'application/json' }
+    headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
 });
 
 async function verifyTurnstile(secret, token, ip) {
     if (!secret) {
-        console.warn('[reserve] TURNSTILE_SECRET_KEY not set, skipping captcha check');
+        console.warn('[reserve] TURNSTILE_SECRET_KEY not set — skipping captcha check');
         return true;
     }
-    if (!token) return false;
+    if (!token) {
+        console.warn('[reserve] Missing captcha token from client');
+        return false;
+    }
     try {
         const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
             method: 'POST',
@@ -55,30 +55,56 @@ async function verifyTurnstile(secret, token, ip) {
             body: new URLSearchParams({ secret, response: token, remoteip: ip })
         });
         const result = await r.json();
+        if (!result.success) {
+            console.error('[reserve] Turnstile rejected:', JSON.stringify(result));
+        }
         return result.success === true;
     } catch (err) {
-        console.error('[reserve] Turnstile verify error:', err);
+        console.error('[reserve] Turnstile verify threw:', err);
         return false;
     }
 }
 
+// GET /api/diag — reports presence (not values) of expected env vars.
+// Safe to be public; leaks no secrets.
+export async function onRequestDiag(context) {
+    const { env } = context;
+    return json(200, {
+        env: {
+            RESEND_API_KEY: Boolean(env.RESEND_API_KEY),
+            RESERVATION_TO_EMAIL: Boolean(env.RESERVATION_TO_EMAIL),
+            RESERVATION_FROM: Boolean(env.RESERVATION_FROM),
+            TURNSTILE_SECRET_KEY: Boolean(env.TURNSTILE_SECRET_KEY)
+        },
+        runtime: 'cloudflare-workers',
+        timestamp: new Date().toISOString()
+    });
+}
+
 export async function onRequestPost(context) {
     const { request, env } = context;
+    const reqId = request.headers.get('CF-Ray') || 'no-ray';
+    const log = (level, ...args) => console[level](`[reserve ${reqId}]`, ...args);
 
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
 
-    if (rateLimited(ip)) return json(429, { error: 'Too many requests' });
+    if (rateLimited(ip)) {
+        log('warn', 'rate limited', ip);
+        return json(429, { error: 'Too many requests' });
+    }
 
     let body;
     try {
         body = await request.json();
     } catch {
+        log('warn', 'invalid JSON body');
         return json(400, { error: 'Invalid JSON body' });
     }
 
     // Honeypot: bots tend to fill every field.
     if (body.website && String(body.website).trim() !== '') {
-        return json(200, { ok: true }); // silent drop
+        log('warn', 'honeypot triggered — silent drop');
+        return json(200, { ok: true });
     }
 
     const name = typeof body.name === 'string' ? body.name.trim().slice(0, 120) : '';
@@ -98,17 +124,24 @@ export async function onRequestPost(context) {
     if (checkOut <= checkIn) return json(400, { error: 'Invalid date range' });
     if (!['1', '2', '3', '4'].includes(guests)) return json(400, { error: 'Invalid guests' });
 
-    // Captcha check (only enforced when TURNSTILE_SECRET_KEY is set).
+    // Captcha
     const captchaOk = await verifyTurnstile(env.TURNSTILE_SECRET_KEY, captchaToken, ip);
-    if (!captchaOk) return json(403, { error: 'Captcha verification failed' });
+    if (!captchaOk) {
+        log('warn', 'captcha failed');
+        return json(403, { error: 'Captcha verification failed' });
+    }
 
     const apiKey = env.RESEND_API_KEY;
     const to = env.RESERVATION_TO_EMAIL;
     const from = env.RESERVATION_FROM || 'Little Loutra <onboarding@resend.dev>';
 
-    if (!apiKey || !to) {
-        console.warn('[reserve] Missing RESEND_API_KEY or RESERVATION_TO_EMAIL — not sending email');
-        return json(200, { ok: true, warning: 'Email delivery not configured' });
+    if (!apiKey) {
+        log('error', 'RESEND_API_KEY not set in Worker env — cannot send email');
+        return json(503, { error: 'Email service not configured (RESEND_API_KEY)' });
+    }
+    if (!to) {
+        log('error', 'RESERVATION_TO_EMAIL not set in Worker env — cannot send email');
+        return json(503, { error: 'Email service not configured (RESERVATION_TO_EMAIL)' });
     }
 
     const html = `
@@ -126,6 +159,7 @@ export async function onRequestPost(context) {
     `;
 
     try {
+        log('info', `sending via Resend: from="${from}" to="${to}"`);
         const r = await fetch('https://api.resend.com/emails', {
             method: 'POST',
             headers: {
@@ -141,14 +175,20 @@ export async function onRequestPost(context) {
             })
         });
 
+        const responseText = await r.text();
+
         if (!r.ok) {
-            const detail = await r.text();
-            console.error('[reserve] Resend failed:', r.status, detail);
-            return json(502, { error: 'Email delivery failed' });
+            log('error', `Resend responded ${r.status}:`, responseText);
+            return json(502, {
+                error: 'Email delivery failed',
+                upstream_status: r.status,
+                upstream_detail: responseText
+            });
         }
+        log('info', 'Resend accepted:', responseText);
         return json(200, { ok: true });
     } catch (err) {
-        console.error('[reserve] fetch error:', err);
-        return json(502, { error: 'Email delivery failed' });
+        log('error', 'fetch to Resend threw:', err && err.message ? err.message : err);
+        return json(502, { error: 'Email delivery failed', detail: String(err) });
     }
 }
