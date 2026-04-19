@@ -5,7 +5,7 @@
 // - Everything else → static assets binding (dist/), with SPA fallback for
 //   unknown paths via wrangler.jsonc `not_found_handling: "single-page-application"`
 
-import { onRequestPost as reservePost } from './api/reserve.js';
+import { onRequestPost as reservePost, onRequestDiag } from './api/reserve.js';
 
 const VERSION = 'v3-2026-04-19';
 
@@ -25,6 +25,11 @@ export default {
                 status: 200,
                 headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
             });
+        }
+
+        // Env var presence check — safe to be public, booleans only
+        if (url.pathname === '/api/diag' && request.method === 'GET') {
+            return onRequestDiag({ request, env, ctx });
         }
 
         if (url.pathname === '/api/reserve') {
