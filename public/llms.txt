@@ -1,0 +1,44 @@
+# Little Loutra
+
+> Private seaside apartment in Loutraki Perachora, Greece. One bedroom, private balcony, sleeps up to 4. Two minutes from the sea, one hour from Athens.
+
+## Key facts
+
+- Location: Mpoleti 6, Loutraki 20300, Greece (Corinthian Gulf, Perachora peninsula)
+- Coordinates: 37.994248, 22.923831
+- Capacity: up to 4 guests
+- Bedrooms: 1
+- Check-in: 15:00
+- Check-out: 11:00
+- Minimum stay: 2 nights
+- Parking: free, directly in front of the building
+- Pets: small, well-behaved pets welcome on request
+- Cancellation: free up to 14 days before arrival
+- Distance to sea: 2 minutes on foot
+- Distance to Athens: ~1 hour by car
+- Amenities: fiber Wi-Fi, air conditioning, full kitchen, private balcony
+
+## Languages
+
+- English: https://littleloutra.com/
+- Greek (Ελληνικά): https://littleloutra.com/el/
+- Czech (Čeština): https://littleloutra.com/cs/
+- German (Deutsch): https://littleloutra.com/de/
+
+## Positioning
+
+Little Loutra is not a hotel. It is a private apartment run by its owners, intended for travelers who want quiet and direct sea access without the scale or staff of a resort. The nearby town Loutraki is known for its natural thermal springs (ιαματικές πηγές), a feature that distinguishes the destination from generic Greek island stays.
+
+## Contact
+
+- Email: stay@littleloutra.com
+- Reservations: https://littleloutra.com/#book
+
+## Booking
+
+Dates and guest count are requested via the reservation form at https://littleloutra.com/#book. The owners respond with a custom quote, typically within a few hours. A Booking.com listing is also available when present.
+
+## Structured data
+
+- Schema.org LodgingBusiness + FAQPage are inlined on every locale page.
+- Sitemap: https://littleloutra.com/sitemap.xml

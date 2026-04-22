@@ -33,8 +33,16 @@ const Header = () => {
     }, [langOpen]);
 
     const changeLanguage = (code) => {
-        i18n.changeLanguage(code);
         setLangOpen(false);
+        // Switch locale by navigating to the path-based URL (/, /el/, /cs/, /de/).
+        // Preserves hash so section links (#book, #about) survive the transition.
+        const target = code === 'en' ? '/' : `/${code}/`;
+        const hash = window.location.hash || '';
+        if (window.location.pathname !== target) {
+            window.location.assign(target + hash);
+        } else {
+            i18n.changeLanguage(code);
+        }
     };
 
     const closeMenu = () => setMenuOpen(false);

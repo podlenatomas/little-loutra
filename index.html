@@ -35,9 +35,9 @@
 
     <!-- Hreflang -->
     <link rel="alternate" hreflang="en" href="https://littleloutra.com/" />
-    <link rel="alternate" hreflang="el" href="https://littleloutra.com/?lng=el" />
-    <link rel="alternate" hreflang="cs" href="https://littleloutra.com/?lng=cs" />
-    <link rel="alternate" hreflang="de" href="https://littleloutra.com/?lng=de" />
+    <link rel="alternate" hreflang="el" href="https://littleloutra.com/el/" />
+    <link rel="alternate" hreflang="cs" href="https://littleloutra.com/cs/" />
+    <link rel="alternate" hreflang="de" href="https://littleloutra.com/de/" />
     <link rel="alternate" hreflang="x-default" href="https://littleloutra.com/" />
 
     <!-- Preconnects for third-party assets -->
@@ -51,16 +51,29 @@
     <!-- Web manifest -->
     <link rel="manifest" href="/manifest.webmanifest" />
 
-    <!-- Structured data: LodgingBusiness -->
+    <!-- PRERENDER:SCHEMA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LodgingBusiness",
+      "@id": "https://littleloutra.com/#lodging",
       "name": "Little Loutra",
-      "description": "Private apartment in Loutraki Perachora, Greece. One bedroom, a private balcony, up to 4 guests.",
+      "description": "Private apartment in Loutraki Perachora, Greece. One bedroom, a private balcony, up to 4 guests. One hour from Athens.",
       "url": "https://littleloutra.com/",
       "image": "https://littleloutra.com/og-image.jpg",
+      "email": "stay@littleloutra.com",
       "priceRange": "€€",
+      "petsAllowed": true,
+      "checkinTime": "15:00",
+      "checkoutTime": "11:00",
+      "numberOfRooms": 1,
+      "numberOfBedrooms": 1,
+      "maximumAttendeeCapacity": 4,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "minValue": 1,
+        "maxValue": 4
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Mpoleti 6",
@@ -73,18 +86,43 @@
         "latitude": 37.994248,
         "longitude": 22.923831
       },
+      "hasMap": "https://www.google.com/maps/place/37%C2%B059'39.3%22N+22%C2%B055'25.8%22E/@37.994248,22.923831,17z",
+      "containedInPlace": {
+        "@type": "TouristDestination",
+        "name": "Loutraki",
+        "sameAs": [
+          "https://en.wikipedia.org/wiki/Loutraki",
+          "https://www.wikidata.org/wiki/Q620518"
+        ]
+      },
       "amenityFeature": [
         { "@type": "LocationFeatureSpecification", "name": "Fiber Wi-Fi", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
         { "@type": "LocationFeatureSpecification", "name": "Full Kitchen", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Private Balcony", "value": true }
-      ],
-      "numberOfRooms": 1,
-      "maximumAttendeeCapacity": 4
+        { "@type": "LocationFeatureSpecification", "name": "Private Balcony", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Sea View Nearby", "value": true }
+      ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What are the check-in and check-out times?", "acceptedAnswer": { "@type": "Answer", "text": "Check-in from 3 PM, check-out until 11 AM. We send arrival instructions the day before." } },
+        { "@type": "Question", "name": "Is parking available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, free parking directly in front of the building or in the immediate area." } },
+        { "@type": "Question", "name": "How far is the beach?", "acceptedAnswer": { "@type": "Answer", "text": "A two-minute walk from the door." } },
+        { "@type": "Question", "name": "Are pets allowed?", "acceptedAnswer": { "@type": "Answer", "text": "Small, well-behaved pets are welcome on request. Please let us know in advance." } },
+        { "@type": "Question", "name": "What is your cancellation policy?", "acceptedAnswer": { "@type": "Answer", "text": "Free cancellation up to 14 days before arrival." } }
+      ]
+    }
+    </script>
+    <!-- /PRERENDER:SCHEMA -->
   </head>
   <body>
+    <!-- PRERENDER:NOSCRIPT -->
+    <!-- /PRERENDER:NOSCRIPT -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
