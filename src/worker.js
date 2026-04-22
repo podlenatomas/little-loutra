@@ -7,7 +7,7 @@
 
 import { onRequestPost as reservePost, onRequestDiag } from './api/reserve.js';
 
-const VERSION = 'v8-2026-04-22-gsc';
+const VERSION = 'v10-2026-04-22-gsc-file';
 
 export default {
     async fetch(request, env, ctx) {
@@ -24,6 +24,19 @@ export default {
             return new Response(VERSION, {
                 status: 200,
                 headers: { 'Content-Type': 'text/plain', 'Cache-Control': 'no-store' }
+            });
+        }
+
+        // Google Search Console verification file. Served verbatim so CF Assets
+        // doesn't redirect /foo.html → /foo (default html_handling), which
+        // would break GSC's exact-URL check.
+        if (url.pathname === '/google9bc3dbb3e7d9a947.html') {
+            return new Response('google-site-verification: google9bc3dbb3e7d9a947.html\n', {
+                status: 200,
+                headers: {
+                    'Content-Type': 'text/html; charset=utf-8',
+                    'Cache-Control': 'public, max-age=3600'
+                }
             });
         }
 
