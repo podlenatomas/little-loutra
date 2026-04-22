@@ -67,6 +67,10 @@ select:focus {
     font-weight: 600;
     transition: all var(--transition-base);
     box-shadow: 0 4px 16px rgba(0, 119, 190, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .submit-btn:hover {
@@ -187,9 +191,11 @@ textarea:focus {
 }
 
 .form-captcha {
-    display: flex;
-    justify-content: center;
     min-height: 65px;
+}
+
+.form-captcha > div {
+    width: 100%;
 }
 
 .honeypot {

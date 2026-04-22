@@ -10,5 +10,12 @@
     "directory": "./dist",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
-  }
+  },
+  "vars": {
+    "RESERVATION_TO_EMAIL": "stay@littleloutra.com",
+    "RESERVATION_FROM": "Little Loutra <stay@littleloutra.com>"
+  },
+  "routes": [
+    { "pattern": "littleloutra.com", "zone_name": "littleloutra.com", "custom_domain": true }
+  ]
 }

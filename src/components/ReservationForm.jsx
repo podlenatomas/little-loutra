@@ -51,7 +51,8 @@ const ReservationForm = ({ onOpenLegal }) => {
                 callback: (token) => setCaptchaToken(token),
                 'error-callback': () => setCaptchaToken(''),
                 'expired-callback': () => setCaptchaToken(''),
-                theme: 'light'
+                theme: 'light',
+                size: 'flexible'
             });
         };
         tryRender();
