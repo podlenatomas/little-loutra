@@ -7,8 +7,8 @@ import './Footer.css';
 const CONTACT = {
     instagram: 'https://www.instagram.com/', // TODO
     facebook: 'https://www.facebook.com/',   // TODO
-    phone: '+30 274 406 6000',               // TODO: verify
-    phoneHref: 'tel:+302744066000',
+    phone: '+30 695 564 4151',
+    phoneHref: 'tel:+306955644151',
     email: 'stay@littleloutra.com'
 };
 

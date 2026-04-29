@@ -13,7 +13,9 @@ const GalleryGrid = () => {
         { src: '/images/apt-07.jpg', captionKey: 'dining' },
         { src: '/images/apt-08.jpg', captionKey: 'kitchen' },
         { src: '/images/apt-09.jpg', captionKey: 'bathroom' },
-        { src: '/images/apt-10.jpg', captionKey: 'hallway' }
+        { src: '/images/apt-10.jpg', captionKey: 'hallway' },
+        // TODO: replace with real balcony photo (currently a placeholder duplicate)
+        { src: '/images/apt-04.jpg', captionKey: 'balcony' }
     ];
 
     const fallback = (e) => {

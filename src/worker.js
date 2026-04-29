@@ -7,7 +7,7 @@
 
 import { onRequestPost as reservePost, onRequestDiag } from './api/reserve.js';
 
-const VERSION = 'v10-2026-04-22-gsc-file';
+const VERSION = 'v11-2026-04-29-faq-content';
 
 export default {
     async fetch(request, env, ctx) {

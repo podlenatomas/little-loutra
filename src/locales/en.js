@@ -46,6 +46,8 @@ export default {
             { q: "What are the check-in and check-out times?", a: "Check-in from 3 PM, check-out until 11 AM. We send arrival instructions the day before." },
             { q: "Is parking available?", a: "Yes, free parking directly in front of the building or in the immediate area." },
             { q: "How far is the beach?", a: "A two-minute walk from the door." },
+            { q: "Are towels and bed linen provided?", a: "Yes — fresh bed linen and towels are ready when you arrive. Nothing to bring." },
+            { q: "How do I get there from the airport?", a: "About one hour by car from Athens International Airport. We work with Avance Car Rental — once your reservation is confirmed, we send you a discount voucher for the car of your choice." },
             { q: "Are pets allowed?", a: "Small, well-behaved pets are welcome on request. Please let us know in advance." },
             { q: "What's your cancellation policy?", a: "Free cancellation up to 14 days before arrival. See our Cancellation policy for details." }
         ]
@@ -119,7 +121,7 @@ export default {
         title: "What's around",
         subtitle: "On foot or by car.",
         items: [
-            { key: "sea", title: "Sea and promenade", desc: "Cafés, bars, tavernas, shops and public showers along the boardwalk. 2-minute walk." },
+            { key: "sea", title: "Sea and promenade", desc: "A public beach of fine pebbles with outdoor showers, plus cafés, bars, tavernas and shops along the boardwalk. 2-minute walk." },
             { key: "thermal", title: "Thermal baths", desc: "A natural hot spring wells up right at the shoreline. The municipal baths a few doors down have an indoor pool, a steam room and jacuzzis." },
             { key: "canal", title: "Corinth Canal", desc: "A narrow gorge cut through rock, linking the Corinthian and Saronic Gulfs. 15 minutes by car." },
             { key: "seal", title: "Seal Cave", desc: "A sea cave with turquoise water on the Perachora peninsula. 30 minutes by car." },

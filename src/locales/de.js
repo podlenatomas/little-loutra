@@ -46,6 +46,8 @@ export default {
             { q: "Wann ist Check-in / Check-out?", a: "Check-in ab 15 Uhr, Check-out bis 11 Uhr. Anreiseinfos senden wir am Vortag." },
             { q: "Gibt es Parkplätze?", a: "Ja, kostenlos direkt vor dem Gebäude oder in unmittelbarer Nähe." },
             { q: "Wie weit ist der Strand?", a: "Zwei Minuten zu Fuß von der Tür." },
+            { q: "Sind Handtücher und Bettwäsche vorhanden?", a: "Ja, frische Bettwäsche und Handtücher liegen bei Ankunft bereit. Sie müssen nichts mitbringen." },
+            { q: "Wie komme ich vom Flughafen zu Ihnen?", a: "Etwa eine Stunde mit dem Auto vom Flughafen Athen. Wir kooperieren mit Avance Car Rental — sobald Ihre Reservierung bestätigt ist, senden wir Ihnen einen Rabattgutschein für den Mietwagen Ihrer Wahl." },
             { q: "Sind Haustiere erlaubt?", a: "Kleine, ruhige Haustiere auf Anfrage willkommen." },
             { q: "Wie sind die Stornobedingungen?", a: "Kostenlose Stornierung bis 14 Tage vor Anreise. Details unter Stornopolitik." }
         ]
@@ -119,7 +121,7 @@ export default {
         title: "Umgebung",
         subtitle: "Zu Fuß oder mit dem Auto.",
         items: [
-            { key: "sea", title: "Meer und Promenade", desc: "Cafés, Bars, Tavernen, Geschäfte und öffentliche Duschen entlang der Promenade. 2 Minuten zu Fuß." },
+            { key: "sea", title: "Meer und Promenade", desc: "Öffentlicher Strand mit feinen Kieseln und Duschen, dazu Cafés, Bars, Tavernen und Geschäfte entlang der Promenade. 2 Minuten zu Fuß." },
             { key: "thermal", title: "Thermalbäder", desc: "Eine heiße Quelle sprudelt direkt am Ufer ins Meer. Ein paar Türen weiter liegen die städtischen Bäder mit Hallenbad, Dampfbad und Whirlpools." },
             { key: "canal", title: "Kanal von Korinth", desc: "Ein schmaler, in den Fels gegrabener Kanal, der den Korinthischen mit dem Saronischen Golf verbindet. 15 Min. mit dem Auto." },
             { key: "seal", title: "Robbenhöhle", desc: "Eine Meereshöhle mit türkisfarbenem Wasser auf der Halbinsel Perachora. 30 Min. mit dem Auto." },

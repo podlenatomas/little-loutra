@@ -46,6 +46,8 @@ export default {
             { q: "Kdy je check-in a check-out?", a: "Check-in od 15:00, check-out do 11:00. Pokyny k příjezdu posíláme den předem." },
             { q: "Je k dispozici parkování?", a: "Ano, bezplatně přímo před domem nebo v blízkém okolí." },
             { q: "Jak daleko je pláž?", a: "Dvě minuty pěšky od dveří." },
+            { q: "Jsou v apartmánu ručníky a povlečení?", a: "Ano, čisté povlečení i ručníky jsou připravené při příjezdu. Nic si přivážet nemusíte." },
+            { q: "Jak se k vám dostanu z letiště?", a: "Asi hodinu autem z Athénského mezinárodního letiště. Spolupracujeme s Avance Car Rental — po potvrzení rezervace vám pošleme slevový kupon na zapůjčení automobilu." },
             { q: "Berete domácí mazlíčky?", a: "Menší zvířata po domluvě ano. Dejte nám prosím vědět předem." },
             { q: "Jaké jsou storno podmínky?", a: "Bezplatné zrušení 14 dní před příjezdem. Podrobnosti najdete v sekci Storno." }
         ]
@@ -119,7 +121,7 @@ export default {
         title: "Co je okolo",
         subtitle: "Pěšky, autem, stojí za to.",
         items: [
-            { key: "sea", title: "Moře a promenáda", desc: "Kavárny, bary, taverny, obchody a veřejné sprchy přímo u moře. 2 minuty pěšky." },
+            { key: "sea", title: "Moře a promenáda", desc: "Veřejná pláž s jemnými oblázky a sprchami, k tomu kavárny, bary, taverny a obchody přímo u moře. 2 minuty pěšky." },
             { key: "thermal", title: "Termální lázně", desc: "U břehu vyvěrá termální pramen přímo do moře. O pár domů dál jsou městské lázně s krytým bazénem, parní lázní a vířivkami." },
             { key: "canal", title: "Korintský průplav", desc: "Úzká soutěska prokopaná skálou, spojuje Korintský záliv se Sarónským. 15 minut autem." },
             { key: "seal", title: "Tulení jeskyně", desc: "Mořská jeskyně s tyrkysovou vodou na poloostrově Perachora. 30 minut autem." },

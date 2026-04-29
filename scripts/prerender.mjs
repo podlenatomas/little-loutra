@@ -50,6 +50,7 @@ function buildSchema(lng) {
         url: baseHref(lng),
         image: `${BASE_URL}/og-image.jpg`,
         email: 'stay@littleloutra.com',
+        telephone: '+306955644151',
         priceRange: '€€',
         petsAllowed: true,
         checkinTime: '15:00',
