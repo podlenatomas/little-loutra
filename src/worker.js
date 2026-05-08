@@ -7,7 +7,7 @@
 
 import { onRequestPost as reservePost, onRequestDiag } from './api/reserve.js';
 
-const VERSION = 'v12-2026-05-08-balcony';
+const VERSION = 'v13-2026-05-08-gallery6';
 
 export default {
     async fetch(request, env, ctx) {

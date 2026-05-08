@@ -9,7 +9,6 @@ const GalleryGrid = () => {
 
     const images = [
         { src: '/images/apt-11.jpg', captionKey: 'bed' },
-        { src: '/images/apt-04.jpg', captionKey: 'sofa' },
         { src: '/images/apt-07.jpg', captionKey: 'dining' },
         { src: '/images/apt-08.jpg', captionKey: 'kitchen' },
         { src: '/images/apt-09.jpg', captionKey: 'bathroom' },
