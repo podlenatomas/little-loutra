@@ -29,20 +29,20 @@ const CookieConsent = ({ onLearnMore }) => {
     if (!visible) return null;
 
     return (
-        <div className="cookie-banner" role="dialog" aria-live="polite" aria-label={t('cookies.title')}>
-            <div className="cookie-inner">
-                <div className="cookie-text">
+        <div className="consent-card" role="dialog" aria-live="polite" aria-label={t('cookies.title')}>
+            <div className="consent-inner">
+                <div className="consent-text">
                     <strong>{t('cookies.title')}</strong>
                     <p>{t('cookies.message')}</p>
                 </div>
-                <div className="cookie-actions">
-                    <button type="button" className="cookie-btn secondary" onClick={() => decide('declined')}>
+                <div className="consent-actions">
+                    <button type="button" className="consent-btn secondary" onClick={() => decide('declined')}>
                         {t('cookies.decline')}
                     </button>
-                    <button type="button" className="cookie-btn primary" onClick={() => decide('accepted')}>
+                    <button type="button" className="consent-btn primary" onClick={() => decide('accepted')}>
                         {t('cookies.accept')}
                     </button>
-                    <button type="button" className="cookie-btn link" onClick={() => onLearnMore?.('cookiesPage')}>
+                    <button type="button" className="consent-btn link" onClick={() => onLearnMore?.('cookiesPage')}>
                         {t('cookies.learnMore')}
                     </button>
                 </div>
