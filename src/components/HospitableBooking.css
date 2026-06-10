@@ -42,6 +42,9 @@
         padding-top: var(--spacing-2xl);
         padding-bottom: 0;
     }
+    .booking-frame {
+        max-width: 320px;
+    }
     .booking-iframe {
         height: 720px;
     }
