@@ -32,9 +32,9 @@ export default {
     pricing: {
         title: "Rates",
         subtitle: "Rates change with season and demand. Send us your dates and number of guests. We usually reply with a quote within a few hours.",
-        cta: "Request a quote",
+        cta: "Reserve Your Stay",
         booking: "Or book via Booking.com",
-        bookingUrl: "https://www.booking.com/",
+        airbnb: "Or book via Airbnb",
         notes: [
             "Minimum stay: 2 nights",
             "All taxes included"

@@ -28,13 +28,22 @@ const PricingSection = () => {
                         </a>
                     </MagneticButton>
                     <a
-                        href={t('pricing.bookingUrl')}
+                        href="https://www.booking.com/hotel/gr/little-loutra-seaside-apartment-loutraki"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="pricing-booking"
+                        className="pricing-ota"
                     >
                         <span>{t('pricing.booking')}</span>
-                        <ExternalLink size={15} aria-hidden="true" />
+                        <ExternalLink size={13} aria-hidden="true" />
+                    </a>
+                    <a
+                        href="https://cs.airbnb.com/rooms/1668143537483994329"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="pricing-ota"
+                    >
+                        <span>{t('pricing.airbnb')}</span>
+                        <ExternalLink size={13} aria-hidden="true" />
                     </a>
                 </div>
 

@@ -32,9 +32,9 @@ export default {
     pricing: {
         title: "Ceník",
         subtitle: "Ceny se mění podle sezóny a poptávky. Napište nám termín a počet hostů. Obvykle odpovíme s nabídkou do několika hodin.",
-        cta: "Vyžádat si nabídku",
+        cta: "Zarezervovat pobyt",
         booking: "Nebo rezervujte přes Booking.com",
-        bookingUrl: "https://www.booking.com/",
+        airbnb: "Nebo rezervujte přes Airbnb",
         notes: [
             "Minimální pobyt: 2 noci",
             "Ceny včetně daní"

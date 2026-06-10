@@ -17,7 +17,7 @@
 
 .booking-notice {
     max-width: 480px;
-    margin: 0 auto var(--spacing-md);
+    margin: var(--spacing-md) auto 0;
     text-align: center;
     font-size: 13px;
     line-height: 1.5;

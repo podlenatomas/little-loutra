@@ -32,9 +32,9 @@ export default {
     pricing: {
         title: "Preise",
         subtitle: "Die Preise ändern sich mit Saison und Nachfrage. Schicken Sie uns Ihre Wunschtermine und die Gästezahl. Wir melden uns meist innerhalb weniger Stunden mit einem Angebot.",
-        cta: "Angebot anfragen",
+        cta: "Aufenthalt reservieren",
         booking: "Oder buchen Sie über Booking.com",
-        bookingUrl: "https://www.booking.com/",
+        airbnb: "Oder buchen Sie über Airbnb",
         notes: [
             "Mindestaufenthalt: 2 Nächte",
             "Alle Steuern inklusive"

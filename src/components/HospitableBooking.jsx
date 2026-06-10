@@ -43,12 +43,6 @@ const HospitableBooking = () => {
         <section id="book" className="section booking-section">
             <div className="container" data-reveal>
                 <h2 className="section-title">{t('booking.title')}</h2>
-                {showFallbackNotice && (
-                    <p
-                        className="booking-notice"
-                        dangerouslySetInnerHTML={{ __html: t('booking.fallbackNotice') }}
-                    />
-                )}
                 <div className="booking-frame">
                     <iframe
                         id="booking-iframe"
@@ -59,6 +53,12 @@ const HospitableBooking = () => {
                         src="https://booking.hospitable.com/widget/a1fddc69-e603-4b37-95a3-4bfd6f25188a/2286458"
                     />
                 </div>
+                {showFallbackNotice && (
+                    <p
+                        className="booking-notice"
+                        dangerouslySetInnerHTML={{ __html: t('booking.fallbackNotice') }}
+                    />
+                )}
             </div>
         </section>
     );
