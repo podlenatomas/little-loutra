@@ -73,6 +73,9 @@ export default {
         invalidEmail: "Please enter a valid email address.",
         captchaRequired: "Please complete the security check."
     },
+    booking: {
+        title: "Check availability & book"
+    },
     footer: {
         description: "A quiet home on the Corinthian Gulf. Modern comfort, two minutes from the water.",
         contactTitle: "Contact",

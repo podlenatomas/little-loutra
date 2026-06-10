@@ -73,6 +73,9 @@ export default {
         invalidEmail: "Zadejte prosím platný e-mail.",
         captchaRequired: "Dokončete prosím bezpečnostní kontrolu."
     },
+    booking: {
+        title: "Dostupnost a rezervace"
+    },
     footer: {
         description: "Vaše soukromé útočiště. Klid Korintského zálivu, moderní komfort.",
         contactTitle: "Kontakt",

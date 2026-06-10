@@ -73,6 +73,9 @@ export default {
         invalidEmail: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         captchaRequired: "Bitte führen Sie die Sicherheitsprüfung durch."
     },
+    booking: {
+        title: "Verfügbarkeit & Buchung"
+    },
     footer: {
         description: "Ihr ruhiges Zuhause am Korinthischen Golf. Moderner Komfort, zwei Minuten vom Wasser.",
         contactTitle: "Kontakt",

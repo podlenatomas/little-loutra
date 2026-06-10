@@ -9,7 +9,7 @@ import SurroundingsSection from './components/SurroundingsSection';
 import PricingSection from './components/PricingSection';
 import FAQSection from './components/FAQSection';
 import Map from './components/Map';
-import ReservationForm from './components/ReservationForm';
+import HospitableBooking from './components/HospitableBooking';
 import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
 import CookieConsent from './components/CookieConsent';
@@ -44,7 +44,7 @@ function App() {
                         <PricingSection />
                         <FAQSection />
                         <Map />
-                        <ReservationForm onOpenLegal={openLegal} />
+                        <HospitableBooking />
                     </main>
                     <Footer onOpenLegal={openLegal} />
                     <CookieConsent onLearnMore={openLegal} />
