@@ -74,7 +74,8 @@ export default {
         captchaRequired: "Please complete the security check."
     },
     booking: {
-        title: "Check availability & book"
+        title: "Check availability & book",
+        fallbackNotice: ""
     },
     footer: {
         description: "A quiet home on the Corinthian Gulf. Modern comfort, two minutes from the water.",

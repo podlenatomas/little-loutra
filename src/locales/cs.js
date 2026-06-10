@@ -74,7 +74,8 @@ export default {
         captchaRequired: "Dokončete prosím bezpečnostní kontrolu."
     },
     booking: {
-        title: "Dostupnost a rezervace"
+        title: "Dostupnost a rezervace",
+        fallbackNotice: `Rezervační kalendář se zobrazuje v angličtině. Potřebujete pomoc česky? Napište nám na <a href="mailto:stay@littleloutra.com">stay@littleloutra.com</a>.`
     },
     footer: {
         description: "Vaše soukromé útočiště. Klid Korintského zálivu, moderní komfort.",

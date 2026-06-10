@@ -74,7 +74,8 @@ export default {
         captchaRequired: "Bitte führen Sie die Sicherheitsprüfung durch."
     },
     booking: {
-        title: "Verfügbarkeit & Buchung"
+        title: "Verfügbarkeit & Buchung",
+        fallbackNotice: ""
     },
     footer: {
         description: "Ihr ruhiges Zuhause am Korinthischen Golf. Moderner Komfort, zwei Minuten vom Wasser.",

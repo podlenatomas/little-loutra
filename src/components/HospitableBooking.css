@@ -15,6 +15,20 @@
     margin: 0 auto;
 }
 
+.booking-notice {
+    max-width: 480px;
+    margin: 0 auto var(--spacing-md);
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #6E6E73;
+}
+
+.booking-notice a {
+    color: #0077BE;
+    text-decoration: underline;
+}
+
 .booking-iframe {
     width: 100%;
     height: 540px;

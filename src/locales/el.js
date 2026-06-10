@@ -74,7 +74,8 @@ export default {
         captchaRequired: "Παρακαλώ ολοκληρώστε τον έλεγχο ασφαλείας."
     },
     booking: {
-        title: "Διαθεσιμότητα & κράτηση"
+        title: "Διαθεσιμότητα & κράτηση",
+        fallbackNotice: `Το ημερολόγιο κρατήσεων εμφανίζεται στα αγγλικά. Χρειάζεστε βοήθεια στα ελληνικά; Γράψτε μας στο <a href="mailto:stay@littleloutra.com">stay@littleloutra.com</a>.`
     },
     footer: {
         description: "Το ήσυχο κατάλυμά σας στον Κορινθιακό Κόλπο. Σύγχρονη άνεση, δύο λεπτά από το κύμα.",
