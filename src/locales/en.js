@@ -159,7 +159,7 @@ export default {
         },
         cancellation: {
             title: "Cancellation Policy",
-            body: `<p>Free cancellation up to 14 days before the scheduled check-in date: full refund, no questions asked. Between 14 and 7 days before arrival: 50% refund. Less than 7 days or no-show: no refund. If we have to cancel for reasons outside your control (natural disaster, essential repairs, etc.), you receive a full refund. Refunds are processed via Stripe within 10 business days to the original payment method.</p>`
+            body: `<p>Free cancellation up to 14 days before the scheduled check-in date: full refund, no questions asked. Less than 14 days before arrival or no-show: no refund. If we have to cancel for reasons outside your control (natural disaster, essential repairs, etc.), you receive a full refund. Refunds are processed via Stripe within 10 business days to the original payment method.</p>`
         },
         cookiesPage: {
             title: "Cookies & Local Storage",

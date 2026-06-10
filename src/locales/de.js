@@ -159,7 +159,7 @@ export default {
         },
         cancellation: {
             title: "Stornobedingungen",
-            body: `<p>Kostenlose Stornierung bis 14 Tage vor Anreise: volle Rückerstattung, ohne Rückfrage. Zwischen 14 und 7 Tagen vor Anreise: 50 % Rückerstattung. Weniger als 7 Tage oder Nichtanreise: keine Rückerstattung. Müssen wir aus Gründen außerhalb Ihrer Kontrolle stornieren (Naturereignisse, notwendige Reparaturen usw.), erhalten Sie eine volle Rückerstattung. Rückerstattungen erfolgen über Stripe innerhalb von 10 Werktagen auf die ursprüngliche Zahlungsmethode.</p>`
+            body: `<p>Kostenlose Stornierung bis 14 Tage vor Anreise: volle Rückerstattung, ohne Rückfrage. Weniger als 14 Tage vor Anreise oder Nichtanreise: keine Rückerstattung. Müssen wir aus Gründen außerhalb Ihrer Kontrolle stornieren (Naturereignisse, notwendige Reparaturen usw.), erhalten Sie eine volle Rückerstattung. Rückerstattungen erfolgen über Stripe innerhalb von 10 Werktagen auf die ursprüngliche Zahlungsmethode.</p>`
         },
         cookiesPage: {
             title: "Cookies & Lokaler Speicher",

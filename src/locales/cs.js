@@ -159,7 +159,7 @@ export default {
         },
         cancellation: {
             title: "Storno podmínky",
-            body: `<p>Bezplatné zrušení 14 dní před plánovaným příjezdem: plná refundace, bez otázek. Mezi 14 a 7 dny před příjezdem: 50 % refundace. Méně než 7 dní nebo nedostavení se: bez refundace. Pokud musíme zrušit my z důvodů mimo Vaši kontrolu (přírodní katastrofa, nutné opravy apod.), obdržíte plnou refundaci. Refundace probíhají přes Stripe do 10 pracovních dnů na původní platební prostředek.</p>`
+            body: `<p>Bezplatné zrušení 14 dní před plánovaným příjezdem: plná refundace, bez otázek. Méně než 14 dní před příjezdem nebo nedostavení se: bez refundace. Pokud musíme zrušit my z důvodů mimo Vaši kontrolu (přírodní katastrofa, nutné opravy apod.), obdržíte plnou refundaci. Refundace probíhají přes Stripe do 10 pracovních dnů na původní platební prostředek.</p>`
         },
         cookiesPage: {
             title: "Cookies a lokální úložiště",
