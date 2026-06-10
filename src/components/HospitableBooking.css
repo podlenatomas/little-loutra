@@ -1,7 +1,7 @@
 .booking-section {
-    background: #FFFFFF;
+    background: linear-gradient(to bottom, #F5F5F7 0%, #FFFFFF 100%);
     padding-top: var(--spacing-3xl);
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
 }
 
 .booking-section .container {
@@ -10,8 +10,15 @@
 }
 
 .booking-frame {
-    max-width: 420px;
+    width: 100%;
+    max-width: 480px;
     margin: 0 auto;
+    background: #FFFFFF;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    padding: 12px;
+    overflow: hidden;
 }
 
 .booking-iframe {
@@ -19,12 +26,16 @@
     height: 1000px;
     border: 0;
     display: block;
+    border-radius: calc(var(--radius-xl) - 12px);
 }
 
 @media (max-width: 768px) {
     .booking-section {
         padding-top: var(--spacing-2xl);
         padding-bottom: var(--spacing-md);
+    }
+    .booking-frame {
+        padding: 8px;
     }
     .booking-iframe {
         height: 1100px;
