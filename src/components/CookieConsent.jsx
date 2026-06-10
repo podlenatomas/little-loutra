@@ -36,14 +36,14 @@ const CookieConsent = ({ onLearnMore }) => {
                     <p>{t('cookies.message')}</p>
                 </div>
                 <div className="cookie-actions">
-                    <button type="button" className="cookie-btn secondary" onClick={() => onLearnMore?.('cookiesPage')}>
-                        {t('cookies.learnMore')}
-                    </button>
                     <button type="button" className="cookie-btn secondary" onClick={() => decide('declined')}>
                         {t('cookies.decline')}
                     </button>
                     <button type="button" className="cookie-btn primary" onClick={() => decide('accepted')}>
                         {t('cookies.accept')}
+                    </button>
+                    <button type="button" className="cookie-btn link" onClick={() => onLearnMore?.('cookiesPage')}>
+                        {t('cookies.learnMore')}
                     </button>
                 </div>
             </div>
