@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { X } from 'lucide-react';
 import './LegalModal.css';
 
-const LAST_UPDATED = '2026-04-18';
+const LAST_UPDATED = '2026-06-10';
 
 const LegalModal = ({ docKey, onClose }) => {
     const { t } = useTranslation();
@@ -48,7 +48,7 @@ const LegalModal = ({ docKey, onClose }) => {
                 </header>
                 <div className="legal-body">
                     <p className="legal-updated">{t('legal.lastUpdated')}: {LAST_UPDATED}</p>
-                    <p>{body}</p>
+                    <div className="legal-body-content" dangerouslySetInnerHTML={{ __html: body }} />
                 </div>
             </div>
         </div>

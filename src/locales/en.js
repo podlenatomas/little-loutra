@@ -91,6 +91,7 @@ export default {
         cancellation: "Cancellation",
         cookies: "Cookies",
         rights: "All rights reserved.",
+        operator: "Little Loutra · Mpoleti 6, Loutraki 203 00, Greece · AMA 00003828269",
         credit: "Made on the Gulf of Corinth 💙"
     },
     meaning: {
@@ -139,7 +140,7 @@ export default {
     },
     cookies: {
         title: "We value your privacy",
-        message: "We use local storage to remember your language preference. No tracking, no ads, no third parties.",
+        message: "We use a single browser entry to remember your language. The embedded booking widget and maps may set their own cookies when you use them.",
         accept: "Accept",
         decline: "Decline",
         learnMore: "Learn more"
@@ -149,19 +150,19 @@ export default {
         lastUpdated: "Last updated",
         privacy: {
             title: "Privacy Policy",
-            body: "Little Loutra is a small, independent vacation rental. We collect only the personal data needed to process your reservation: your name, email address, reservation dates, number of guests, and any message you send us. This information is used solely to respond to your booking request and arrange your stay. We do not sell, rent, or share your data with advertisers. We store booking correspondence for up to 24 months for accounting and tax purposes, then delete it. You may request access, correction, or deletion of your data at any time by emailing us. We use browser local storage to remember your language preference. Nothing else. This site is hosted on Vercel; its server logs (IP, user-agent, timestamp) are retained per Vercel's standard policy for security and abuse prevention."
+            body: `<p>Little Loutra is operated from Mpoleti 6, Loutraki 203 00, Greece. For your booking we process your name, email, phone, stay dates, guest count and any message — to fulfil your reservation (GDPR Art. 6(1)(b)) and to meet tax and accounting obligations (Art. 6(1)(c)). We retain booking records for up to 5 years for accounting purposes, then delete them.</p><p>Bookings and payments are handled by our service providers: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a> (booking platform), <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe</a> (payments) and <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare</a> (hosting). These providers may transfer data outside the EU under the EU–US Data Privacy Framework and Standard Contractual Clauses. You have the right to access, correct, delete, restrict, port and object to processing — write to stay@littleloutra.com. You may also lodge a complaint with the <a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">Hellenic Data Protection Authority</a>.</p>`
         },
         terms: {
             title: "Terms of Service",
-            body: "By booking Little Loutra you agree to treat the property with care, respect quiet hours (23:00–08:00), and not exceed the stated maximum of 4 guests without prior agreement. Smoking is permitted only on the balcony. Any damage beyond normal wear is the responsibility of the guest. A reservation is confirmed only after we acknowledge availability and payment is received. Rates and availability may change until a booking is confirmed. These terms are governed by Greek law."
+            body: `<p>By booking Little Loutra you enter into a contract directly with us (Little Loutra, Mpoleti 6, Loutraki 203 00, Greece). The booking widget on this site is operated by Hospitable as a technical intermediary; payments are processed by Stripe — neither is a party to your stay. You agree to treat the property with care, respect quiet hours (23:00–08:00), not exceed 4 guests without prior agreement, and smoke only on the balcony. Damages beyond normal wear are the guest's responsibility. Your reservation is confirmed once availability is acknowledged and payment is received.</p><p>These terms and your stay are governed by Greek law. Accommodation booked for a specific date or period is exempt from the 14-day distance-contract withdrawal right under Article 16(l) of Directive 2011/83/EU. For out-of-court dispute resolution you may use the <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener noreferrer">EU ODR platform</a>. Short-Term Rental registration number (AMA): 00003828269.</p>`
         },
         cancellation: {
             title: "Cancellation Policy",
-            body: "Free cancellation up to 14 days before the scheduled check-in date: full refund, no questions asked. Between 14 and 7 days before arrival: 50% refund. Less than 7 days or no-show: no refund. If we have to cancel for reasons outside your control (natural disaster, essential repairs, etc.), you receive a full refund. Refunds are processed within 10 business days to the original payment method."
+            body: `<p>Free cancellation up to 14 days before the scheduled check-in date: full refund, no questions asked. Between 14 and 7 days before arrival: 50% refund. Less than 7 days or no-show: no refund. If we have to cancel for reasons outside your control (natural disaster, essential repairs, etc.), you receive a full refund. Refunds are processed via Stripe within 10 business days to the original payment method.</p>`
         },
         cookiesPage: {
             title: "Cookies & Local Storage",
-            body: "Little Loutra does not use tracking cookies, analytics cookies, or advertising cookies. We use a single browser local storage entry (i18nextLng) to remember the language you chose so you don't have to reselect it on every visit. You can reject this at any time via the cookie banner. The site will still work, but your language preference won't persist between visits. Our embedded Google Maps iframe may set cookies from Google; it loads only when the map becomes visible."
+            body: `<p>Little Loutra itself does not set tracking, analytics or advertising cookies. We use a single browser local storage entry (<code>i18nextLng</code>) to remember your language choice. You can reject this in the cookie banner; the site still works, your language preference just won't persist.</p><p>The booking widget (provided by Hospitable, with payments by Stripe) and the embedded Google Maps may set their own third-party cookies when you interact with them. If you don't wish to allow them, please avoid using those embedded features. Details: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a>, <a href="https://stripe.com/cookies-policy/legal" target="_blank" rel="noopener noreferrer">Stripe</a>, <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Google Maps</a>.</p>`
         }
     },
     weather: {

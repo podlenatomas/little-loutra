@@ -76,6 +76,15 @@
 }
 
 .legal-body p { margin-bottom: 16px; }
+.legal-body-content a { color: #0077BE; text-decoration: underline; }
+.legal-body-content a:hover { color: #005a8e; }
+.legal-body-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 1px 5px;
+    border-radius: 3px;
+}
 
 .legal-updated {
     font-size: 13px;

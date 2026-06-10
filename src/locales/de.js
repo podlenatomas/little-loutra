@@ -91,6 +91,7 @@ export default {
         cancellation: "Storno",
         cookies: "Cookies",
         rights: "Alle Rechte vorbehalten.",
+        operator: "Little Loutra · Mpoleti 6, Loutraki 203 00, Greece · AMA 00003828269",
         credit: "Entstanden am Golf von Korinth 💙"
     },
     meaning: {
@@ -139,7 +140,7 @@ export default {
     },
     cookies: {
         title: "Wir respektieren Ihre Privatsphäre",
-        message: "Wir verwenden nur lokalen Speicher, um Ihre Spracheinstellung zu merken. Kein Tracking, keine Werbung, keine Drittanbieter.",
+        message: "Wir speichern lediglich Ihre Sprachwahl im Browser. Das Buchungs-Widget und die eingebetteten Karten können bei Nutzung eigene Cookies setzen.",
         accept: "Akzeptieren",
         decline: "Ablehnen",
         learnMore: "Mehr erfahren"
@@ -149,19 +150,19 @@ export default {
         lastUpdated: "Zuletzt aktualisiert",
         privacy: {
             title: "Datenschutzerklärung",
-            body: "Little Loutra ist eine kleine, unabhängige Ferienunterkunft. Wir erheben nur die personenbezogenen Daten, die zur Bearbeitung Ihrer Reservierung erforderlich sind: Name, E-Mail, Aufenthaltsdaten, Gästezahl und eventuelle Nachricht. Wir verwenden diese Daten ausschließlich zur Beantwortung Ihrer Buchungsanfrage. Wir verkaufen, vermieten oder teilen Ihre Daten nicht mit Werbetreibenden. Buchungskorrespondenz speichern wir 24 Monate für Buchhaltungszwecke, danach löschen wir sie. Sie können jederzeit per E-Mail Auskunft, Berichtigung oder Löschung verlangen. Im Browser verwenden wir nur einen lokalen Speichereintrag für die Sprache. Die Seite wird auf Vercel gehostet."
+            body: `<p>Little Loutra wird betrieben von Mpoleti 6, Loutraki 203 00, Griechenland. Für Ihre Buchung verarbeiten wir Name, E-Mail, Telefon, Aufenthaltsdaten, Gästezahl und eine etwaige Nachricht — zur Erfüllung des Beherbergungsvertrags (DSGVO Art. 6 Abs. 1 lit. b) und zur Erfüllung steuerlicher und buchhalterischer Pflichten (Art. 6 Abs. 1 lit. c). Buchungsdaten bewahren wir bis zu 5 Jahre für Buchhaltungszwecke auf, danach werden sie gelöscht.</p><p>Buchungen und Zahlungen werden von unseren Dienstleistern abgewickelt: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a> (Buchungsplattform), <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe</a> (Zahlungen) und <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare</a> (Hosting). Diese können Daten außerhalb der EU übermitteln — abgesichert durch das EU–US Data Privacy Framework und Standardvertragsklauseln. Sie haben Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch — schreiben Sie an stay@littleloutra.com. Sie können sich auch bei der <a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">griechischen Datenschutzbehörde</a> beschweren.</p>`
         },
         terms: {
             title: "Allgemeine Geschäftsbedingungen",
-            body: "Mit Ihrer Buchung verpflichten Sie sich, das Apartment pfleglich zu behandeln, die Nachtruhe (23:00–08:00) einzuhalten und die Höchstzahl von 4 Gästen ohne vorherige Absprache nicht zu überschreiten. Rauchen ist nur auf dem Balkon erlaubt. Schäden über die normale Abnutzung hinaus trägt der Gast. Eine Reservierung ist erst nach Bestätigung und Zahlungseingang verbindlich. Preise können sich bis zur Bestätigung ändern. Es gilt griechisches Recht."
+            body: `<p>Mit der Buchung von Little Loutra schließen Sie den Vertrag direkt mit uns (Little Loutra, Mpoleti 6, Loutraki 203 00, Griechenland). Das Buchungs-Widget wird von Hospitable als technischer Vermittler bereitgestellt, Zahlungen werden über Stripe abgewickelt — keiner von beiden ist Vertragspartei für Ihren Aufenthalt. Sie verpflichten sich, die Unterkunft sorgsam zu behandeln, die Ruhezeiten (23:00–08:00) einzuhalten, die maximale Gästezahl von 4 ohne vorherige Absprache nicht zu überschreiten und nur auf dem Balkon zu rauchen. Schäden über normale Abnutzung hinaus trägt der Gast. Die Reservierung ist nach Bestätigung der Verfügbarkeit und Zahlungseingang verbindlich.</p><p>Diese Bedingungen und Ihr Aufenthalt unterliegen griechischem Recht. Beherbergungsleistungen für einen bestimmten Zeitraum sind vom 14-tägigen Widerrufsrecht bei Fernabsatzverträgen ausgenommen (Art. 16 lit. l Richtlinie 2011/83/EU). Für die außergerichtliche Streitbeilegung steht die <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener noreferrer">EU-ODR-Plattform</a> zur Verfügung. Kurzzeitvermietungs-Registriernummer (AMA): 00003828269.</p>`
         },
         cancellation: {
             title: "Stornobedingungen",
-            body: "Kostenlose Stornierung bis 14 Tage vor Anreise: volle Rückerstattung. Zwischen 14 und 7 Tagen: 50 % Rückerstattung. Weniger als 7 Tage oder No-Show: keine Rückerstattung. Müssen wir stornieren, erhalten Sie eine volle Rückerstattung. Rückerstattungen erfolgen innerhalb von 10 Werktagen auf das ursprüngliche Zahlungsmittel."
+            body: `<p>Kostenlose Stornierung bis 14 Tage vor Anreise: volle Rückerstattung, ohne Rückfrage. Zwischen 14 und 7 Tagen vor Anreise: 50 % Rückerstattung. Weniger als 7 Tage oder Nichtanreise: keine Rückerstattung. Müssen wir aus Gründen außerhalb Ihrer Kontrolle stornieren (Naturereignisse, notwendige Reparaturen usw.), erhalten Sie eine volle Rückerstattung. Rückerstattungen erfolgen über Stripe innerhalb von 10 Werktagen auf die ursprüngliche Zahlungsmethode.</p>`
         },
         cookiesPage: {
             title: "Cookies & Lokaler Speicher",
-            body: "Little Loutra verwendet keine Tracking-, Analyse- oder Werbe-Cookies. Wir nutzen einen einzigen Eintrag im lokalen Browser-Speicher (i18nextLng), um Ihre Sprache zu merken. Sie können dies jederzeit über das Banner ablehnen. Die eingebettete Google-Maps-iFrame kann Cookies von Google setzen; sie lädt erst bei Sichtbarkeit."
+            body: `<p>Little Loutra selbst setzt keine Tracking-, Analyse- oder Werbe-Cookies. Wir verwenden einen einzigen Eintrag im Local Storage des Browsers (<code>i18nextLng</code>), um Ihre Sprachwahl zu speichern. Sie können dies im Banner ablehnen; die Seite funktioniert weiter, lediglich Ihre Sprachwahl wird nicht beibehalten.</p><p>Das Buchungs-Widget (von Hospitable, Zahlungen über Stripe) und die eingebettete Google-Karte können bei Interaktion eigene Drittanbieter-Cookies setzen. Wenn Sie dies nicht zulassen möchten, nutzen Sie die eingebetteten Funktionen bitte nicht. Details: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a>, <a href="https://stripe.com/cookies-policy/legal" target="_blank" rel="noopener noreferrer">Stripe</a>, <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Google Maps</a>.</p>`
         }
     },
     weather: {

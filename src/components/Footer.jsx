@@ -93,6 +93,7 @@ const Footer = ({ onOpenLegal }) => {
 
                 <div className="footer-bottom">
                     <p>&copy; {year} Little Loutra. {t('footer.rights')}</p>
+                    <p className="footer-operator">{t('footer.operator')}</p>
                     <p className="footer-credit">{t('footer.credit')}</p>
                 </div>
             </div>

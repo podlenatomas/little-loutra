@@ -91,6 +91,7 @@ export default {
         cancellation: "Storno",
         cookies: "Cookies",
         rights: "Všechna práva vyhrazena.",
+        operator: "Little Loutra · Mpoleti 6, Loutraki 203 00, Greece · AMA 00003828269",
         credit: "Vyrobeno u Korintského zálivu 💙"
     },
     meaning: {
@@ -139,7 +140,7 @@ export default {
     },
     cookies: {
         title: "Vážíme si Vašeho soukromí",
-        message: "Používáme pouze lokální úložiště prohlížeče pro zapamatování zvoleného jazyka. Žádné sledování, žádné reklamy, žádné třetí strany.",
+        message: "V prohlížeči si pamatujeme jen váš zvolený jazyk. Rezervační widget a vložené mapy mohou při použití nastavit vlastní cookies.",
         accept: "Souhlasím",
         decline: "Odmítnout",
         learnMore: "Více informací"
@@ -149,19 +150,19 @@ export default {
         lastUpdated: "Poslední aktualizace",
         privacy: {
             title: "Zásady ochrany osobních údajů",
-            body: "Little Loutra je malý nezávislý apartmán. Shromažďujeme pouze osobní údaje nutné ke zpracování rezervace: jméno, e-mail, termín pobytu, počet hostů a případnou zprávu. Údaje používáme výhradně pro odpověď na poptávku a zajištění pobytu. Data neprodáváme, nepronajímáme ani nepředáváme inzerentům. Rezervační korespondenci uchováváme 24 měsíců pro účetní a daňové účely, pak mažeme. Kdykoli můžete požádat o přístup, opravu nebo výmaz e-mailem. V prohlížeči používáme jediné lokální úložiště pro uchování zvoleného jazyka. Nic jiného. Web je hostován na Vercelu; serverové logy (IP, user-agent, čas) jsou uchovávány podle standardních zásad Vercelu."
+            body: `<p>Little Loutra je provozována z adresy Mpoleti 6, Loutraki 203 00, Řecko. Pro vyřízení rezervace zpracováváme vaše jméno, e-mail, telefon, termíny pobytu, počet hostů a případnou zprávu — za účelem plnění smlouvy o ubytování (GDPR čl. 6 odst. 1 písm. b) a plnění daňových a účetních povinností (čl. 6 odst. 1 písm. c). Údaje o rezervacích uchováváme po dobu až 5 let pro účetní účely, poté je mažeme.</p><p>Rezervace a platby zajišťují naši poskytovatelé: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a> (rezervační platforma), <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe</a> (platby) a <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare</a> (hosting). Tito poskytovatelé mohou přenášet data mimo EU na základě EU–US Data Privacy Framework a standardních smluvních doložek. Máte právo na přístup, opravu, výmaz, omezení, přenositelnost a námitku — napište na stay@littleloutra.com. Můžete také podat stížnost u <a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">řeckého úřadu pro ochranu osobních údajů</a>.</p>`
         },
         terms: {
             title: "Obchodní podmínky",
-            body: "Rezervací Little Loutra souhlasíte, že budete s apartmánem zacházet s péčí, budete respektovat noční klid (23:00–08:00) a nepřekročíte uvedenou kapacitu 4 hostů bez předchozí dohody. Kouření je povoleno pouze na balkoně. Případné škody nad rámec běžného opotřebení hradí host. Rezervace je platná až po potvrzení dostupnosti a přijetí platby. Ceny a dostupnost se mohou měnit do okamžiku potvrzení. Podmínky se řídí řeckým právem."
+            body: `<p>Rezervací Little Loutra uzavíráte smlouvu přímo s námi (Little Loutra, Mpoleti 6, Loutraki 203 00, Řecko). Rezervační widget na tomto webu provozuje Hospitable jako technický zprostředkovatel, platby zpracovává Stripe — ani jeden není stranou smlouvy o pobytu. Souhlasíte, že budete s objektem zacházet s péčí, respektovat noční klid (23:00–08:00), nepřekročíte 4 hosty bez předchozí dohody a budete kouřit pouze na balkóně. Škody nad rámec běžného opotřebení nese host. Rezervace je platná po potvrzení dostupnosti a přijetí platby.</p><p>Podmínky a pobyt se řídí řeckým právem. Ubytování na konkrétní datum je vyňato ze 14denního práva na odstoupení od smlouvy uzavřené na dálku podle čl. 16 písm. l) směrnice 2011/83/EU. Pro mimosoudní řešení sporů lze využít <a href="https://ec.europa.eu/odr" target="_blank" rel="noopener noreferrer">platformu EU ODR</a>. Registrační číslo krátkodobého pronájmu (AMA): 00003828269.</p>`
         },
         cancellation: {
             title: "Storno podmínky",
-            body: "Bezplatné zrušení 14 dní před příjezdem: plná refundace bez otázek. Mezi 14 a 7 dny před příjezdem: 50 % refundace. Méně než 7 dní nebo nedorazíte: bez refundace. Pokud musíme zrušit my z důvodů mimo Vaši kontrolu (přírodní katastrofa, nutné opravy apod.), dostanete plnou refundaci. Refundace probíhají do 10 pracovních dnů na původní platební prostředek."
+            body: `<p>Bezplatné zrušení 14 dní před plánovaným příjezdem: plná refundace, bez otázek. Mezi 14 a 7 dny před příjezdem: 50 % refundace. Méně než 7 dní nebo nedostavení se: bez refundace. Pokud musíme zrušit my z důvodů mimo Vaši kontrolu (přírodní katastrofa, nutné opravy apod.), obdržíte plnou refundaci. Refundace probíhají přes Stripe do 10 pracovních dnů na původní platební prostředek.</p>`
         },
         cookiesPage: {
             title: "Cookies a lokální úložiště",
-            body: "Little Loutra nepoužívá sledovací, analytické ani reklamní cookies. Používáme jeden záznam v lokálním úložišti prohlížeče (i18nextLng) pro zapamatování zvoleného jazyka. Můžete to kdykoli odmítnout přes banner. Web bude fungovat dál, ale jazyk se nezapamatuje. Vložená mapa Google může nastavovat cookies od Googlu; načítá se až když je mapa viditelná."
+            body: `<p>Little Loutra sama nepoužívá sledovací, analytické ani reklamní cookies. Používáme jediný záznam v local storage prohlížeče (<code>i18nextLng</code>) pro zapamatování zvoleného jazyka. Můžete to odmítnout v banneru; web bude fungovat dál, jen se jazyk nezapamatuje.</p><p>Rezervační widget (od Hospitable, platby Stripe) a vložená Google Maps mohou při interakci nastavovat své vlastní cookies třetích stran. Pokud je nechcete povolit, prosím nevyužívejte tyto vložené funkce. Podrobnosti: <a href="https://hospitable.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Hospitable</a>, <a href="https://stripe.com/cookies-policy/legal" target="_blank" rel="noopener noreferrer">Stripe</a>, <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">Google Maps</a>.</p>`
         }
     },
     weather: {
