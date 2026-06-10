@@ -11,14 +11,8 @@
 
 .booking-frame {
     width: 100%;
-    max-width: 480px;
+    max-width: 360px;
     margin: 0 auto;
-    background: #FFFFFF;
-    border-radius: var(--radius-xl);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.04);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    padding: 12px;
-    overflow: hidden;
 }
 
 .booking-iframe {
@@ -26,16 +20,13 @@
     height: 1000px;
     border: 0;
     display: block;
-    border-radius: calc(var(--radius-xl) - 12px);
+    background: transparent;
 }
 
 @media (max-width: 768px) {
     .booking-section {
         padding-top: var(--spacing-2xl);
         padding-bottom: var(--spacing-md);
-    }
-    .booking-frame {
-        padding: 8px;
     }
     .booking-iframe {
         height: 1100px;
