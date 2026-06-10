@@ -31,7 +31,7 @@
 
 .booking-iframe {
     width: 100%;
-    height: 540px;
+    height: 780px;
     border: 0;
     display: block;
     background: transparent;
@@ -43,6 +43,6 @@
         padding-bottom: 0;
     }
     .booking-iframe {
-        height: 580px;
+        height: 820px;
     }
 }
